@@ -1,49 +1,34 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import Logo from "../../assets/images/Header_logo.svg";
+import Heart from "../../assets/icons/Header_heart.svg";
+import Bag from "../../assets/icons/Header_bag.svg";
+import DayNigth from "../../assets/icons/Header_day-night.svg";
+import s from "./Header.module.css"
+
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="logo">
-        <img src="/path-to-logo.png" alt="logo" />
+    <header className={s.header}>
+      <div className={s.logo_mode}>
+        <img src={Logo} className={s.logo} alt="logo" />
+        <img src={DayNigth} className={s.mode} alt="dark or light theme" />
       </div>
-      <button
-        className="discount-button"
-        // onClick={togglePopup}
-      >
-        1 day discount!
-      </button>
-      <nav className="navigation">
-        <NavLink to="/">Main Page</NavLink>
-        <NavLink to="/categories">Categories</NavLink>
-        <NavLink to="/all_products">All products</NavLink>
-        <NavLink to="/discounted_products">All sales</NavLink>
-      </nav>
-      <div className="icons">
-        <Link to="/favorites">
-          <i className="icon-heart"></i>
-        </Link>
-        <Link to="/cart">
-          <i className="icon-cart"></i>
-        </Link>
-        <button
-          // onClick={handleDarkModeToggle}
-          className="dark-mode-toggle"
-        >
-          <i className="icon-dark-mode"></i>
-        </button>
+ 
+      <div className={s.nav_button}>
+        <button className={s.discount_button}>1 day discount!</button>
+        <nav className={s.navigation}>
+          <NavLink to="/">Main Page</NavLink>
+          <NavLink to="/categories">Categories</NavLink>
+          <NavLink to="/all_products">All products</NavLink>
+          <NavLink to="/discounted_products">All sales</NavLink>
+        </nav>
       </div>
 
-      {/* Попап з товаром дня
-        {showPopup && (
-          <div className="popup">
-            <div className="popup-content">
-              <h3>Товар дня</h3>
-              <p>Знижка 50% на товар!</p>
-              <button onClick={() => setShowPopup(false)}>Закрити</button>
-            </div>
-          </div>
-        )} */}
+      <div className={s.fav_basket}>
+        <Link to="/favorite_products"><img className={s.favorite} src={Heart} alt="Favorite Products Page" /></Link>
+        <Link to="/basket"><img className={s.basket} src={Bag} alt="Basket Page" /></Link>
+      </div>
     </header>
   );
 }
