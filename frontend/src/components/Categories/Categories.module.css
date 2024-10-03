@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  background-color: #FFFFF1;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.title {
+  color: black;
+  font-family: 'Montserrat', normal;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  margin-right: 24px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #898989dd;
+}
+
+.allCategoriesButton {
+  background-color: #FFFFF1;
+  color: #898989dd;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #898989dd;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.allCategoriesButton:hover {
+  background-color: #898989dd;
+  color: white;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(316px, 1fr));
+  gap: 32px;
+}
+
+.categoryCard {
+  text-align: center;
+}
+
+.categoryImage {
+  width: 316px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.categoryTitle {
+  color: black;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 16px;
+}
