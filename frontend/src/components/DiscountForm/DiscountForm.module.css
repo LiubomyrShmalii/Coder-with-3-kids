@@ -1,5 +1,5 @@
 .discountContainer {
-  background-color: #FFFFF1;
+  background-color: #fffff1;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px 108px 40px;
@@ -9,16 +9,15 @@
 }
 
 .greenContainer {
-  background: linear-gradient(80deg, #87933D -0.68%, #55610B 66.66%);
+  background: linear-gradient(80deg, #87933d -0.68%, #55610b 66.66%);
   border-radius: 12px;
-
   padding: 32px 32px 0 32px;
   width: 100%;
 }
 
 .title {
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -67,7 +66,7 @@
   font-size: 18px;
   border: 1px solid #fff;
   border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: transparent;
   color: white;
   outline: none;
@@ -80,7 +79,7 @@
 .button {
   background-color: #f7f3df;
   color: #535353;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   padding: 16px;
