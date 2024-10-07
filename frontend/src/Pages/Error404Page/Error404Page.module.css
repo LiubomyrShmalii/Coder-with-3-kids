@@ -1,0 +1,56 @@
+.errorContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #fffff1;
+  font-family: "Montserrat", normal;
+  text-align: center;
+  color: #92A134;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorImage {
+  width: 300px;
+  height: 270px;
+}
+
+.errorText {
+  color: black;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-top: 32px;
+}
+
+.errorDescription {
+  color: var(--txt-grey, #8B8B8B);
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+.goHomeBtn {
+  padding: 16px 56px;
+  font-size: 20px;
+  color: white;
+  background-color: #92A134;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 32px; /* Додано відступ зверху, щоб кнопка не притискалася до тексту */
+}
+
+.goHomeBtn:hover {
+  background-color: #7d902b;
+}
