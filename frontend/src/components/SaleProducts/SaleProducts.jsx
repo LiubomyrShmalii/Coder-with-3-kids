@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAllSaleProducts } from "../../requests/allSaleProducts";
-import heartIcon from "../../assets/icons/SaleProducts_heart.svg"; // Іконка серця
-import bagIcon from "../../assets/icons/SaleProducts_bag.svg"; // Іконка сумки
+import heartIcon from "../../assets/icons/SaleProducts_heart.svg";
+import bagIcon from "../../assets/icons/SaleProducts_bag.svg";
+import { Link } from "react-router-dom";
 import s from "./SaleProducts.module.css";
 
 export default function SaleProducts() {
@@ -18,7 +19,9 @@ export default function SaleProducts() {
       <div className={s.head}>
         <h2 className={s.title}>Sale</h2>
         <div className={s.line}></div>
-        <button className={s.allSalesButton}>All sales</button>
+        <Link to="/sales" className={s.allSalesButton}>
+          All sales
+        </Link>
       </div>
 
       <div className={s.productsGrid}>
@@ -28,8 +31,8 @@ export default function SaleProducts() {
               -{Math.round(((product.price - product.discont_price) / product.price) * 100)}%
             </div>
             <div className={s.icons}>
-              <img src={heartIcon} alt="Heart Icon" className={s.icon} /> {/* Іконка серця */}
-              <img src={bagIcon} alt="Bag Icon" className={s.icon} /> {/* Іконка сумки */}
+              <img src={heartIcon} alt="Heart Icon" className={s.icon} />
+              <img src={bagIcon} alt="Bag Icon" className={s.icon} />
             </div>
             <img src={`http://localhost:3333${product.image}`} alt={product.title} className={s.productImage} />
             <h3 className={s.productTitle}>{product.title}</h3>
