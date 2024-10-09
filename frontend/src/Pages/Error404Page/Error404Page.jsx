@@ -2,6 +2,7 @@ import cactus from "../../assets/images/Error404Page_cactus.svg";
 import React from "react";
 import s from "./Error404Page.module.css";
 import fourImage from "../../assets/images/Error404Page_4.svg";
+import { Link } from "react-router-dom";
 
 export default function Error404Page() {
   return (
@@ -17,9 +18,9 @@ export default function Error404Page() {
         <br />
         Please go back to the homepage.
       </p>
-      <a href="/" className={s.goHomeBtn}>
+      <Link to="/" className={s.goHomeBtn}>
         Go Home
-      </a>
+      </Link>
     </div>
   );
 }
