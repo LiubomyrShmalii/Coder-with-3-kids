@@ -1,0 +1,108 @@
+.filterContainer {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin: 40px 0px 40px 0px;
+}
+
+.filterItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filterLabel {
+  color: #424436;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.priceInput {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+  border: 1px solid #1c0b0b;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #FFF;
+  max-width: 112px;
+}
+
+.priceInput:focus {
+  outline: none;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.filterItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #DDD);
+  background: #FFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.checkboxInput:checked + .checkmark {
+  background-color: #8a993b;
+  border: none;
+}
+
+.checkboxInput:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  width: 8px;
+  height: 16px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.sortedBox {
+  display: flex;
+  width: 200px;
+  padding: 8px 8px 8px 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #DDD);
+  background: #FFF;
+}
+
+.sortedSelect {
+  color: var(--txt-black, #424436);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.sortedSelect:focus {
+  outline: none;
+}
+
+.sortedSelect option {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--txt-black, #424436);
+}

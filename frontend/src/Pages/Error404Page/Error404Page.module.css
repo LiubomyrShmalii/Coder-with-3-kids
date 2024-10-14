@@ -48,7 +48,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  margin-top: 32px; /* Додано відступ зверху, щоб кнопка не притискалася до тексту */
+  margin-top: 32px;
 }
 
 .goHomeBtn:hover {
