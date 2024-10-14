@@ -1,8 +1,8 @@
 import React from 'react'
 import Banner from '../../components/Banner/Banner'
-import Categories from '../../components/Categories/Categories'
+import Categories from '../../components/CategoriesContainer/CategoriesContainer'
 import DiscountForm from '../../components/DiscountForm/DiscountForm'
-import SaleProducts from '../../components/SaleProducts/SaleProducts'
+import SaleProductsContainer from '../../components/SaleProductsContainer/SaleProductsContainer'
 
 export default function MainPage() {
   return (
@@ -10,7 +10,7 @@ export default function MainPage() {
       <Banner />
       <Categories />
       <DiscountForm />
-      <SaleProducts />
+      <SaleProductsContainer />
     </div>
   )
 }
