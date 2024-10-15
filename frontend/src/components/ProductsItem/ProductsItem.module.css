@@ -64,6 +64,15 @@
   -webkit-line-clamp: 2;
   line-clamp: 2;
   box-orient: vertical;
+  height: 48px;
+  line-height: 1.2em;
+}
+
+.productTitle::after {
+  content: "";
+  display: block;
+  height: 1.2em;
+  opacity: 0;
 }
 
 .priceContainer {
