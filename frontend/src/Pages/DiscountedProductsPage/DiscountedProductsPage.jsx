@@ -14,6 +14,7 @@ export default function DiscountedProductsPage() {
   }, []);
 
   const productsState = useSelector((store) => store.products);
+  const products = productsState.filter(({ discont_price }) => discont_price !== null)
 
   return (
     <section className={s.container}>
@@ -31,8 +32,8 @@ export default function DiscountedProductsPage() {
       </div>
       <FilterContainer />
       <div className={s.productsGrid}>
-        {productsState.map((productsState) => (
-          <ProductsItem key={productsState.id} {...productsState} />
+        {products.map((products) => (
+          <ProductsItem key={products.id} {...products} />
         ))}
       </div>
     </section>
