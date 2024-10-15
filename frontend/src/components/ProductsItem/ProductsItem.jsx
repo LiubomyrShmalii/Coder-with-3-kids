@@ -2,10 +2,11 @@ import React from 'react'
 import heartIcon from "../../assets/icons/SaleProducts_heart.svg";
 import bagIcon from "../../assets/icons/SaleProducts_bag.svg";
 import s from './ProductsItem.module.css'
+import { Link } from 'react-router-dom';
 
-export default function ProductsItem({discont_price, price, title, image}) {
+export default function ProductsItem({id, discont_price, price, title, image}) {
   return (
-    <div>
+    <Link to={`/products/${id}`} >
       <div className={s.productCard}>
             {discont_price && (
               <div className={s.discountBadge}>
@@ -45,6 +46,6 @@ export default function ProductsItem({discont_price, price, title, image}) {
               )}
             </div>
           </div>
-    </div>
+    </Link>
   )
 }

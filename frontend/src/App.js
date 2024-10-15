@@ -22,7 +22,7 @@ function App() {
           <Route path="/all_products" element={<AllProductsPage />} />
           <Route path="/discounted_products" element={<DiscountedProductsPage />} />
           <Route path="/favorite_products" element={<FavoriteProductsPage />} />
-          <Route path="/products/:product_id" element={<SingleProductPage />} />
+          <Route path="/products/:id" element={<SingleProductPage />} />
           <Route path="/basket" element={<BasketPage />} />
           <Route path="*" element={<Error404Page />} />
         </Route>
