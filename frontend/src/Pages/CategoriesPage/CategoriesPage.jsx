@@ -12,6 +12,8 @@ export default function CategoriesPage() {
   }, []);
 
   const categories = useSelector((store) => store.categories);
+  console.log(categories);
+  
 
   return (
     <section className={s.container}>

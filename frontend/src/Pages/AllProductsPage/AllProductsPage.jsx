@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { getAllProducts } from "../../requests/allProducts";
 import { useDispatch, useSelector } from "react-redux";
 import s from "./AllProductsPage.module.css";
-import heartIcon from "../../assets/icons/SaleProducts_heart.svg";
-import bagIcon from "../../assets/icons/SaleProducts_bag.svg";
 import FilterContainer from "../../components/FilterContainer/FilterContainer";
 import ProductsItem from "../../components/ProductsItem/ProductsItem";
 
