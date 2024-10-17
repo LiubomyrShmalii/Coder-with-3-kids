@@ -19,6 +19,7 @@
   font-size: 64px;
   font-weight: 700;
   line-height: 110%;
+  margin-right: 24px;
 }
 
 .line {
@@ -42,8 +43,8 @@
 }
 
 .allCategoriesButton:hover {
-  background-color: #d8cfb8;
-  color: white;
+  background-color: #F2F6D3;
+  color: #8B8B8B;
 }
 
 .categories {

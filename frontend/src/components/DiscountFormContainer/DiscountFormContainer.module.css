@@ -78,7 +78,7 @@
 
 .button {
   background-color: #f7f3df;
-  color: #535353;
+  color: black;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -92,5 +92,6 @@
 }
 
 .button:hover {
-  background-color: #d8cfb8;
+  background-color: #424436;
+  color: white;
 }

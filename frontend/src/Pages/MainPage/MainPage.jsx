@@ -1,13 +1,13 @@
 import React from 'react'
-import Banner from '../../components/Banner/Banner'
+import BannerContainer from '../../components/BannerContainer/BannerContainer'
 import Categories from '../../components/CategoriesContainer/CategoriesContainer'
-import DiscountForm from '../../components/DiscountForm/DiscountForm'
+import DiscountForm from '../../components/DiscountFormContainer/DiscountFormContainer'
 import SaleProductsContainer from '../../components/SaleProductsContainer/SaleProductsContainer'
 
 export default function MainPage() {
   return (
     <div>
-      <Banner />
+      <BannerContainer />
       <Categories />
       <DiscountForm />
       <SaleProductsContainer />

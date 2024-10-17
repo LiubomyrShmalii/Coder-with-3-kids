@@ -15,7 +15,11 @@ export default function SaleProductsContainer() {
 
   const productsState = useSelector((store) => store.products);
 
-  const displayedProducts = productsState.filter(({ discont_price }) => discont_price !== null).slice(0, 4);
+  const discountedProductsAll = productsState.filter(({ discont_price }) => discont_price !== null);
+
+  const randomProducts = [...discountedProductsAll].sort(() => 0.5 - Math.random());
+
+  const fourProducts = randomProducts.slice(0, 4);
 
   return (
     <section className={s.container}>
@@ -27,7 +31,7 @@ export default function SaleProductsContainer() {
         </Link>
       </div>
       <div className={s.productsGrid}>
-        {displayedProducts.map((el) => (
+        {fourProducts.map((el) => (
           <ProductsItem key={el.id} {...el} />
         ))}
       </div>

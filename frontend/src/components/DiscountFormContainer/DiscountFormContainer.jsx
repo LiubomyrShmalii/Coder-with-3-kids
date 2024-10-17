@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./DiscountForm.module.css";
+import s from "./DiscountFormContainer.module.css";
 import peopleImage from "../../assets/images/DiscountForm_hands.png";
 
 export default function DiscountForm() {
