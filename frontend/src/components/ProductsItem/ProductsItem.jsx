@@ -3,6 +3,10 @@ import heartIcon from "../../assets/icons/SaleProducts_heart.svg";
 import bagIcon from "../../assets/icons/SaleProducts_bag.svg";
 import s from './ProductsItem.module.css'
 import { Link } from 'react-router-dom';
+import { PiShoppingCartFill } from "react-icons/pi";
+import { PiHeartFill } from "react-icons/pi";
+
+
 
 export default function ProductsItem({id, discont_price, price, title, image}) {
   return (
@@ -21,8 +25,8 @@ export default function ProductsItem({id, discont_price, price, title, image}) {
             )}
 
             <div className={s.icons}>
-              <img src={heartIcon} alt="Heart Icon" className={s.icon} />
-              <img src={bagIcon} alt="Bag Icon" className={s.icon} />
+              <PiHeartFill className={s.iconHeart} />
+              <PiShoppingCartFill className={s.iconCart} />
             </div>
             <img
               src={`http://localhost:3333${image}`}

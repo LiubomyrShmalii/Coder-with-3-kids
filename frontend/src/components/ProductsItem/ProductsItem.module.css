@@ -44,11 +44,32 @@
   gap: 10px;
 }
 
-.icon {
+.iconHeart {
   width: 48px;
   height: 48px;
   cursor: pointer;
-  transition: filter 0.3s ease;
+  fill: white;
+  stroke: black;
+  stroke-width: 7;
+  transition: transform 0.3s ease;
+}
+
+.iconHeart:hover {
+  transform: scale(1.1);
+}
+
+.iconCart {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  fill: white;
+  stroke: black;
+  stroke-width: 7;
+  transition: transform 0.3s ease;
+}
+
+.iconCart:hover {
+  transform: scale(1.1);
 }
 
 .productTitle {

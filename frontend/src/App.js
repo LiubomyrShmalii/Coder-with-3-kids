@@ -18,7 +18,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<MainPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/category/:categoryId" element={<ProductsByCategoryPage />} />
+          <Route path="/categories/:categoryId" element={<ProductsByCategoryPage />} />
           <Route path="/all_products" element={<AllProductsPage />} />
           <Route path="/discounted_products" element={<DiscountedProductsPage />} />
           <Route path="/favorite_products" element={<FavoriteProductsPage />} />
