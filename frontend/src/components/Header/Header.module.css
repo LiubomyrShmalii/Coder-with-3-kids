@@ -35,6 +35,10 @@
   cursor: pointer;
 }
 
+.discount_button:hover {
+  background-color: #424436;
+}
+
 .navigation {
   display: flex;
   justify-content: center;
