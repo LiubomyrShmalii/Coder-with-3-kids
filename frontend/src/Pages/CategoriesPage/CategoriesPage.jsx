@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getAllCategories } from "../../requests/allCategories";
 import s from "./CategoriesPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import CategoryItem from "../../components/CategoriesItem/CategoriesItem";
+import CategoryItem from "../../components/CategoryItem/CategoryItem";
 
 export default function CategoriesPage() {
   const dispatch = useDispatch();

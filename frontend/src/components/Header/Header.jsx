@@ -5,6 +5,8 @@ import Heart from "../../assets/icons/Header_heart.svg";
 import Bag from "../../assets/icons/Header_bag.svg";
 import DayNigth from "../../assets/icons/Header_day-night.svg";
 import s from "./Header.module.css";
+import { PiShoppingCartFill } from "react-icons/pi";
+import { PiHeartFill } from "react-icons/pi";
 
 export default function Header() {
   return (
@@ -56,14 +58,10 @@ export default function Header() {
 
       <div className={s.fav_basket}>
         <Link to="/favorite_products">
-          <img
-            className={s.favorite}
-            src={Heart}
-            alt="Favorite Products Page"
-          />
+          <PiHeartFill className={s.favorite}/>
         </Link>
         <Link to="/basket">
-          <img className={s.basket} src={Bag} alt="Basket Page" />
+          <PiShoppingCartFill className={s.basket}/>
         </Link>
       </div>
     </header>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import s from "./CategoriesContainer.module.css";
 import { getAllCategories } from "../../requests/allCategories.js";
-import CategoryItem from "../CategoriesItem/CategoriesItem.jsx";
+import CategoryItem from "../CategoryItem/CategoryItem.jsx";
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();

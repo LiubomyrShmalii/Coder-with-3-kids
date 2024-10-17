@@ -62,3 +62,30 @@
   height: 48px;
 }
 
+.favorite {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  fill: none;
+  stroke: black;
+  stroke-width: 10;
+  transition: transform 0.3s ease;
+}
+
+.favorite:hover {
+  transform: scale(1.1);
+}
+
+.basket {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  fill: none;
+  stroke: black;
+  stroke-width: 9;
+  transition: transform 0.3s ease;
+}
+
+.basket:hover {
+  transform: scale(1.1);
+}
