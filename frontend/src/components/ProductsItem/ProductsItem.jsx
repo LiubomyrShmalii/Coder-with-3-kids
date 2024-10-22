@@ -1,29 +1,51 @@
-import React from 'react';
-import s from './ProductsItem.module.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import s from "./ProductsItem.module.css";
+import { Link } from "react-router-dom";
 import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
-import { addProductToBasketAction, removeProductFromBasketAction } from '../../store/reducers/basketReducer'; // Додаємо дію для видалення
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  addProductToBasketAction,
+  removeProductFromBasketAction,
+} from "../../store/reducers/basketReducer";
+import {
+  addProductToFavoritesAction,
+  removeProductFromFavoritesAction,
+} from "../../store/reducers/favoritesReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function ProductsItem({ id, discont_price, price, title, image }) {
+export default function ProductsItem({
+  id,
+  discont_price,
+  price,
+  title,
+  image,
+}) {
   const dispatch = useDispatch();
-  
-  const basket = useSelector(state => state.basket);
 
-  const isInCart = basket.some(product => product.id === id);
+  const basket = useSelector((state) => state.basket);
+  const favorites = useSelector((state) => state.favorites);
+
+  const isInCart = basket.some((product) => product.id === id);
+  const isInFavorites = favorites.some((product) => product.id === id);
 
   const handleHeartClick = (event) => {
     event.preventDefault();
-    console.log("Added to favorites");
+    if (isInFavorites) {
+      dispatch(removeProductFromFavoritesAction(id));
+    } else {
+      dispatch(
+        addProductToFavoritesAction({ id, discont_price, price, title, image })
+      );
+    }
   };
-
 
   const handleCartClick = (event) => {
     event.preventDefault();
     if (isInCart) {
       dispatch(removeProductFromBasketAction(id));
     } else {
-      dispatch(addProductToBasketAction({ id, discont_price, price, title, image }));
+      dispatch(
+        addProductToBasketAction({ id, discont_price, price, title, image })
+      );
     }
   };
 
@@ -56,13 +78,19 @@ export default function ProductsItem({ id, discont_price, price, title, image })
       </div>
 
       <div className={s.icons}>
-  <div className={s.iconHeartContainer}>
-    <PiHeartFill className={s.iconHeart} onClick={handleHeartClick} />
-  </div>
-  <div className={s.iconCartContainer}>
-    <PiShoppingCartFill className={`${s.iconCart} ${isInCart ? s.inCart : ''}`} onClick={handleCartClick} />
-  </div>
-</div>
+        <div className={s.iconHeartContainer}>
+          <PiHeartFill
+            className={`${s.iconHeart} ${isInFavorites ? s.inFavorites : ""}`}
+            onClick={handleHeartClick}
+          />
+        </div>
+        <div className={s.iconCartContainer}>
+          <PiShoppingCartFill
+            className={`${s.iconCart} ${isInCart ? s.inCart : ""}`}
+            onClick={handleCartClick}
+          />
+        </div>
+      </div>
     </div>
   );
 }

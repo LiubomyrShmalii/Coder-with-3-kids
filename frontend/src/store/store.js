@@ -5,13 +5,15 @@ import { allCategoriesReducer } from './reducers/allCategoriesReducer';
 import { productsByCategoryReducer } from './reducers/productsByCategory';
 import { singleProductReducer } from './reducers/singleProductReducer';
 import { basketReducer } from './reducers/basketReducer';
+import { favoritesReducer } from './reducers/favoritesReducer';
 
 const rootReducer = combineReducers({
   products: allProductsReducer,
   categories: allCategoriesReducer,
   productsByCategory: productsByCategoryReducer,
   singleProduct: singleProductReducer,
-  basket: basketReducer
+  basket: basketReducer,
+  favorites: favoritesReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

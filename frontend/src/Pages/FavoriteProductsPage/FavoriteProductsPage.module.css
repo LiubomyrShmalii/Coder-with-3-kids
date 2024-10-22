@@ -1,0 +1,233 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px 0px 40px;
+  background-color: #fffff1;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.crumbBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #fffff1;
+  border: 1px solid #ddd;
+}
+
+.crumbText {
+  color: var(--txt-grey, #8b8b8b);
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.crumbTextBlack {
+  color: black;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.line {
+  width: 16px;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  margin-right: 24px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 100%;
+  gap: 32px;
+}
+
+.productCard {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover {
+  transform: scale(1.05);
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: #f26d22;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.icons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.productTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--txt-black, #424436);
+  margin: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  box-orient: vertical;
+}
+
+.priceContainer {
+  margin: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #424436;
+}
+
+.originalPrice {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #8b8b8b;
+  text-decoration: line-through;
+}
+
+.emptyFavoritesContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #fffff1;
+  font-family: "Montserrat", normal;
+  text-align: center;
+  color: #92a134;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyTitle {
+  color: black;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-top: 32px;
+}
+
+.emptyDescription {
+  color: var(--txt-grey, #8b8b8b);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+.emptySuggestion {
+  color: var(--txt-grey, #8b8b8b);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+.allProductsBtn {
+  padding: 16px 56px;
+  font-size: 20px;
+  color: white;
+  background-color: #92a134;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 32px;
+}
+
+.allProductsBtn:hover {
+  background-color: #7d902b;
+}
+
+.errorImage {
+  width: 300px;
+  height: 270px;
+}

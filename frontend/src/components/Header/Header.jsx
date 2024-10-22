@@ -3,13 +3,15 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/images/Header_logo.svg";
 import DayNigth from "../../assets/icons/Header_day-night.svg";
 import s from "./Header.module.css";
-import { PiShoppingCartFill } from "react-icons/pi";
-import { PiHeartFill } from "react-icons/pi";
+import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const basketState = useSelector(store => store.basket);
+  const basketState = useSelector((store) => store.basket);
+  const favoritesState = useSelector((store) => store.favorites);
+
   const totalItems = basketState.reduce((total, item) => total + item.count, 0);
+  const totalFavorites = favoritesState.length;
 
   return (
     <header className={s.header}>
@@ -59,16 +61,15 @@ export default function Header() {
       </div>
 
       <div className={s.fav_basket}>
-        <Link to="/favorite_products">
-          <PiHeartFill className={s.favorite}/>
+        <Link to="/favorite_products" className={s.favoriteContainer}>
+          <PiHeartFill className={s.favorite} />
+          {totalFavorites > 0 && (
+            <div className={s.favoritesBadge}>{totalFavorites}</div>
+          )}
         </Link>
         <Link to="/basket" className={s.basketContainer}>
-          <PiShoppingCartFill className={s.basket}/>
-          {totalItems > 0 && (
-            <div className={s.cartBadge}>
-              {totalItems}
-            </div>
-          )}
+          <PiShoppingCartFill className={s.basket} />
+          {totalItems > 0 && <div className={s.cartBadge}>{totalItems}</div>}
         </Link>
       </div>
     </header>
