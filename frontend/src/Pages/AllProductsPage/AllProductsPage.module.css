@@ -47,8 +47,8 @@ a {
 
 .line {
   width: 16px;
-  height: 5px;
-  background-color: #fa0808;
+  height: 1px;
+  background-color: #DDD;
 }
 
 .head {

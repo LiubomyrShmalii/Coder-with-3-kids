@@ -61,11 +61,6 @@
   margin-right: 40px;
 }
 
-.fav_basket img {
-  width: 48px;
-  height: 48px;
-}
-
 .favorite {
   width: 48px;
   height: 48px;
@@ -80,6 +75,10 @@
   transform: scale(1.1);
 }
 
+.basketContainer {
+  position: relative;
+}
+
 .basket {
   width: 48px;
   height: 48px;
@@ -92,4 +91,22 @@
 
 .basket:hover {
   transform: scale(1.1);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 23.833px;
+  height: 23.833px;
+  background-color: #92A134;
+  color: #FFFFF1;
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
