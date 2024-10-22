@@ -28,9 +28,9 @@ a {
 }
 
 .crumbText {
-  color: var(--txt-grey, #8B8B8B);
+  color: var(--txt-grey, #8b8b8b);
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
@@ -39,7 +39,7 @@ a {
 .crumbTextBlack {
   color: black;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
@@ -48,7 +48,7 @@ a {
 .line {
   width: 16px;
   height: 1px;
-  background-color: #DDD;
+  background-color: #ddd;
 }
 
 .head {
@@ -59,31 +59,25 @@ a {
 
 .title {
   color: black;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 110%;
   margin-right: 24px;
 }
 
-.line {
-  width: 16px;
-  height: 1px;
-  background-color: #ddd;
-}
-
 .productsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 100%;
+  gap: 32px;
 }
 
 .productCard {
   position: relative;
   border-radius: 12px;
-  border: 1px solid #DDD;
-  background-color: #FFF;
+  border: 1px solid #ddd;
+  background-color: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -100,16 +94,16 @@ a {
   height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
 }
 
 .discountBadge {
   position: absolute;
   top: 16px;
   left: 16px;
-  background-color: #F26D22;
+  background-color: #f26d22;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
   padding: 4px 8px;
@@ -133,7 +127,7 @@ a {
 }
 
 .productTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: var(--txt-black, #424436);
@@ -156,16 +150,84 @@ a {
 }
 
 .price {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 600;
   color: #424436;
 }
 
 .originalPrice {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  color: #8B8B8B;
+  color: #8b8b8b;
   text-decoration: line-through;
+}
+
+.emptyFavoritesContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #fffff1;
+  font-family: "Montserrat", normal;
+  text-align: center;
+  color: #92a134;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyTitle {
+  color: black;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-top: 32px;
+}
+
+.emptyDescription {
+  color: var(--txt-grey, #8b8b8b);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+.emptySuggestion {
+  color: var(--txt-grey, #8b8b8b);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+.allProductsBtn {
+  padding: 16px 56px;
+  font-size: 20px;
+  color: white;
+  background-color: #92a134;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 32px;
+}
+
+.allProductsBtn:hover {
+  background-color: #7d902b;
+}
+
+.errorImage {
+  width: 300px;
+  height: 270px;
 }

@@ -12,12 +12,14 @@ export default function CategoriesPage() {
   }, []);
 
   const categories = useSelector((store) => store.categories);
-  console.log(categories);
-  
 
   return (
     <section className={s.container}>
       <div className={s.breadcrumbs}>
+        <div className={s.crumbBox}>
+          <span className={s.crumbText}>Main page</span>
+        </div>
+        <div className={s.line}></div>
         <div className={s.crumbBox}>
           <span className={s.crumbText}>Main page</span>
         </div>

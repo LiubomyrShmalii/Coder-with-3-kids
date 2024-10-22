@@ -1,0 +1,239 @@
+.shoppingCartContainer {
+  background-color: #fffff1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.title {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  margin-right: 24px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #898989dd;
+}
+
+.allCategoriesButton {
+  background-color: #fffff1;
+  color: #898989dd;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #898989dd;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.allCategoriesButton:hover {
+  background-color: #F2F6D3;
+  color: #8B8B8B;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+
+.cartItems {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 780px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  max-height: 180px;
+}
+
+.cartItem img {
+  width: 200px;
+  height: 180px;
+  object-fit: cover;
+  margin-right: 32px;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 548px;
+  padding: 0 32px;
+}
+
+.itemDetails p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  overflow: hidden;
+  color: var(--txt-black, #424436);
+  text-overflow: ellipsis;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.quantityControl {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.quantityControl button {
+  width: 58px;
+  height: 58px;
+  border-radius: 6px;
+  border: 1px solid #DDD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.currentPrice {
+  color: var(--txt-black, #424436);
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #8B8B8B;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.removeItem {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  margin-left: 16px;
+}
+
+.orderDetails {
+  flex: 2;
+  padding: 32px;
+  background-color: #F2F6D3;
+  border-radius: 12px;
+  color: black;
+  max-width: 548px;
+}
+
+.orderDetails h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.orderDetails p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  color: #8B8B8B;
+}
+
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalPrice h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.formContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.input {
+  padding: 16px;
+  font-size: 18px;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  background: white;
+  color: #8B8B8B;
+  outline: none;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #8B8B8B;
+}
+
+.button {
+  background-color: #92A134;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #424436;
+  color: white;
+}

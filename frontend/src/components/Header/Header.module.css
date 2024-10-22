@@ -24,7 +24,7 @@
 }
 
 .discount_button {
-  background-color: #92A134;
+  background-color: #92a134;
   font-family: Montserrat, sans-serif;
   font-size: 20px;
   color: white;
@@ -61,9 +61,8 @@
   margin-right: 40px;
 }
 
-.fav_basket img {
-  width: 48px;
-  height: 48px;
+.favoriteContainer {
+  position: relative;
 }
 
 .favorite {
@@ -80,6 +79,10 @@
   transform: scale(1.1);
 }
 
+.basketContainer {
+  position: relative;
+}
+
 .basket {
   width: 48px;
   height: 48px;
@@ -92,4 +95,40 @@
 
 .basket:hover {
   transform: scale(1.1);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 23.833px;
+  height: 23.833px;
+  background-color: #92a134;
+  color: #fffff1;
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favoritesBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 23.833px;
+  height: 23.833px;
+  background-color: #92a134;
+  color: #fffff1;
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
