@@ -1,8 +1,8 @@
 .productCard {
   position: relative;
   border-radius: 12px;
-  border: 1px solid #DDD;
-  background-color: #FFF;
+  border: 1px solid #ddd;
+  background-color: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -19,16 +19,16 @@
   height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
 }
 
 .discountBadge {
   position: absolute;
   top: 16px;
   left: 16px;
-  background-color: #F26D22;
+  background-color: #f26d22;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
   padding: 4px 8px;
@@ -74,12 +74,17 @@
 }
 
 .inCart {
-  fill: #92A134;
+  fill: #92a134;
+  stroke: none;
+}
+
+.inFavorites {
+  fill: #92a134;
   stroke: none;
 }
 
 .productTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: var(--txt-black, #424436);
@@ -111,16 +116,16 @@
 }
 
 .price {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 600;
   color: #424436;
 }
 
 .originalPrice {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  color: #8B8B8B;
+  color: #8b8b8b;
   text-decoration: line-through;
 }

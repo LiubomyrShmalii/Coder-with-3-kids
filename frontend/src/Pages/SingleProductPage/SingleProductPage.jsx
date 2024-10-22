@@ -5,13 +5,17 @@ import { useParams } from "react-router-dom";
 import { PiHeartFill } from "react-icons/pi";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
+import {
+  addProductToFavoritesAction,
+  removeProductFromFavoritesAction,
+} from "../../store/reducers/favoritesReducer";
 import s from "./SingleProductPage.module.css";
 
 export default function SingleProductPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  
-  const [quantity, setQuantity] = useState(1); 
+
+  const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -19,6 +23,11 @@ export default function SingleProductPage() {
   }, [dispatch, id]);
 
   const productState = useSelector((store) => store.singleProduct);
+  const favoriteProducts = useSelector((store) => store.favorites);
+
+  const isInFavorites = favoriteProducts.some(
+    (product) => product.id === productState.id
+  );
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
@@ -36,9 +45,25 @@ export default function SingleProductPage() {
         price: productState.price,
         title: productState.title,
         image: productState.image,
-        count: quantity
+        count: quantity,
       })
     );
+  };
+
+  const handleFavoriteClick = () => {
+    if (isInFavorites) {
+      dispatch(removeProductFromFavoritesAction(productState.id));
+    } else {
+      dispatch(
+        addProductToFavoritesAction({
+          id: productState.id,
+          discont_price: productState.discont_price,
+          price: productState.price,
+          title: productState.title,
+          image: productState.image,
+        })
+      );
+    }
   };
 
   const handleImageClick = () => {
@@ -75,7 +100,12 @@ export default function SingleProductPage() {
           <div className={s.infoContainer}>
             <div className={s.headerRow}>
               <h2 className={s.productTitle}>{productState.title}</h2>
-              <PiHeartFill className={s.heartIcon} />
+              <PiHeartFill
+                className={`${s.heartIcon} ${
+                  isInFavorites ? s.inFavorites : ""
+                }`}
+                onClick={handleFavoriteClick}
+              />
             </div>
 
             <div className={s.priceBlock}>
@@ -104,9 +134,13 @@ export default function SingleProductPage() {
 
             <div className={s.actionRow}>
               <div className={s.quantityControl}>
-                <div className={s.boxMinus} onClick={handleDecrease}>-</div>
+                <div className={s.boxMinus} onClick={handleDecrease}>
+                  -
+                </div>
                 <div className={s.quantity}>{quantity}</div>
-                <div className={s.boxPlus} onClick={handleIncrease}>+</div>
+                <div className={s.boxPlus} onClick={handleIncrease}>
+                  +
+                </div>
               </div>
               <button className={s.addToCartButton} onClick={handleAddToCart}>
                 Add to cart
