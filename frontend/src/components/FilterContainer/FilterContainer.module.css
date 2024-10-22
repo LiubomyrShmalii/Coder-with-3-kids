@@ -24,7 +24,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
-  border: 1px solid #1c0b0b;
+  border: 1px solid #DDD;
   padding: 8px 16px;
   border-radius: 6px;
   background: #FFF;
@@ -86,7 +86,7 @@
 }
 
 .sortedSelect {
-  color: var(--txt-black, #424436);
+  color: #424436;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 500;

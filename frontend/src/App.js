@@ -1,5 +1,4 @@
 import AllProductsPage from './Pages/AllProductsPage/AllProductsPage';
-import BasketPage from './Pages/BasketPage/BasketPage';
 import CategoriesPage from './Pages/CategoriesPage/CategoriesPage';
 import DiscountedProductsPage from './Pages/DiscountedProductsPage/DiscountedProductsPage';
 import Error404Page from './Pages/Error404Page/Error404Page';
@@ -10,6 +9,7 @@ import ProductsByCategoryPage from './Pages/ProductsByCategoryPage/ProductsByCat
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
+import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
           <Route path="/discounted_products" element={<DiscountedProductsPage />} />
           <Route path="/favorite_products" element={<FavoriteProductsPage />} />
           <Route path="/products/:id" element={<SingleProductPage />} />
-          <Route path="/basket" element={<BasketPage />} />
+          <Route path="/basket" element={<ShoppingCartPage />} />
           <Route path="*" element={<Error404Page />} />
         </Route>
       </Routes>

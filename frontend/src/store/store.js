@@ -4,12 +4,14 @@ import { thunk } from 'redux-thunk'
 import { allCategoriesReducer } from './reducers/allCategoriesReducer';
 import { productsByCategoryReducer } from './reducers/productsByCategory';
 import { singleProductReducer } from './reducers/singleProductReducer';
+import { basketReducer } from './reducers/basketReducer';
 
 const rootReducer = combineReducers({
   products: allProductsReducer,
   categories: allCategoriesReducer,
   productsByCategory: productsByCategoryReducer,
-  singleProduct: singleProductReducer
+  singleProduct: singleProductReducer,
+  basket: basketReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
