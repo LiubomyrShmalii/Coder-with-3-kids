@@ -132,3 +132,48 @@
   justify-content: center;
   align-items: center;
 }
+
+.themeSwitch {
+  width: 60px;
+  height: 32px;
+  background-color: var(--grey, #8B8B8B);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.sunIcon {
+  color: #fff;
+  position: absolute;
+  left: 8px;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.moonIcon {
+  color: #ffffff;
+  position: absolute;
+  right: 8px;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.toggleCircle {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  color: #ffffff;
+  border-radius: 50%;
+  left: 4px;
+  transition: left 0.3s ease;
+  z-index: 2;
+}
+
+.toggleCircle.dark {
+  left: 28px; /* Зміщення круга вправо для темного режиму */
+  
+}

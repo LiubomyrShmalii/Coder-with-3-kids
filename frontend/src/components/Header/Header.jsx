@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from "../../assets/images/Header_logo.svg";
-import DayNigth from "../../assets/icons/Header_day-night.svg";
+import { FiSun } from "react-icons/fi";
+import { IoMoonOutline } from "react-icons/io5";
+import { FaCircle } from "react-icons/fa";
 import s from "./Header.module.css";
 import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { useSelector } from "react-redux";
@@ -9,6 +11,7 @@ import DayDiscountProduct from '../DayDiscountProduct/DayDiscountProduct';
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
 
   const basketState = useSelector((store) => store.basket);
   const favoritesState = useSelector((store) => store.favorites);
@@ -19,59 +22,44 @@ export default function Header() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  // Змінюємо тему і зберігаємо її в localStorage
+  useEffect(() => {
+    document.body.classList.toggle("dark-theme", isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode(prevMode => !prevMode);
+
   return (
     <header className={s.header}>
       <div className={s.logo_mode}>
         <Link to="/">
           <img src={Logo} className={s.logo} alt="logo" />
         </Link>
-        <img src={DayNigth} className={s.mode} alt="dark or light theme" />
+
+        {/* Перемикач теми */}
+        <div className={s.themeSwitch} onClick={toggleTheme}>
+          <FiSun className={s.sunIcon} />
+          <FaCircle className={`${s.toggleCircle} ${isDarkMode ? s.dark : ''}`} />
+          <IoMoonOutline className={s.moonIcon} />
+        </div>
       </div>
 
+      {/* Інший контент */}
       <div className={s.nav_button}>
         <div onClick={openModal} className={s.discount_button}>1 day discount!</div>
         <nav className={s.navigation}>
-          <NavLink
-            to="/"
-            style={({ isActive }) =>
-              isActive ? { textDecoration: "underline" } : undefined
-            }
-          >
-            Main Page
-          </NavLink>
-          <NavLink
-            to="/categories"
-            style={({ isActive }) =>
-              isActive ? { textDecoration: "underline" } : undefined
-            }
-          >
-            Categories
-          </NavLink>
-          <NavLink
-            to="/all_products"
-            style={({ isActive }) =>
-              isActive ? { textDecoration: "underline" } : undefined
-            }
-          >
-            All products
-          </NavLink>
-          <NavLink
-            to="/discounted_products"
-            style={({ isActive }) =>
-              isActive ? { textDecoration: "underline" } : undefined
-            }
-          >
-            All sales
-          </NavLink>
+          <NavLink to="/" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>Main Page</NavLink>
+          <NavLink to="/categories" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>Categories</NavLink>
+          <NavLink to="/all_products" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>All products</NavLink>
+          <NavLink to="/discounted_products" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>All sales</NavLink>
         </nav>
       </div>
 
       <div className={s.fav_basket}>
         <Link to="/favorite_products" className={s.favoriteContainer}>
           <PiHeartFill className={s.favorite} />
-          {totalFavorites > 0 && (
-            <div className={s.favoritesBadge}>{totalFavorites}</div>
-          )}
+          {totalFavorites > 0 && <div className={s.favoritesBadge}>{totalFavorites}</div>}
         </Link>
         <Link to="/basket" className={s.basketContainer}>
           <PiShoppingCartFill className={s.basket} />

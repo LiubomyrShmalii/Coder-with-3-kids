@@ -1,0 +1,24 @@
+/* themes.css */
+:root {
+  /* Світла тема */
+  --background-color: #fffff1;
+  --text-color: #000000;
+  --border-color: #ddd;
+  --secondary-text-color: #8B8B8B;
+  --title-color: black;
+  --product-background-color: #ffffff;
+  --discount-badge-color: #F26D22;
+  --icon-color: #424436;
+}
+
+.dark-theme {
+  /* Темна тема */
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --border-color: #555555;
+  --secondary-text-color: #cccccc;
+  --title-color: #ffffff;
+  --product-background-color: #444444;
+  --discount-badge-color: #ff9933;
+  --icon-color: #dddddd;
+}
