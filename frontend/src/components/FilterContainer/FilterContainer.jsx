@@ -29,25 +29,8 @@ export default function FilterContainer() {
     }))
   }, [minValue, maxValue]);
 
-  // const handleFilter = e => {
-  //   e.preventDefault();
-  //   const { min_price, max_price} = e.target;
-
-  //   const priceValues= {
-  //     min: min_price.value || 0,
-  //     max: max_price.value || Infinity
-  //   } 
-  //   dispatch(filterByPriceAction(priceValues))
-  // }
-
   return (
     <div className={s.filterContainer}>
-      {/* <form className={s.filterItem} onSubmit={handleFilter}>
-        <span className={s.filterLabel}>Price</span>
-        <input type="number" name="min_price" placeholder="from" className={s.priceInput} />
-        <input type="number" name="max_price" placeholder="to" className={s.priceInput} />
-        <button>filter</button>
-      </form> */}
       <div className={s.filterItem}>
         <span className={s.filterLabel}>Price: </span>
         <input className={s.priceInput} type='number' placeholder='from' name='min_price' onChange={handleMinValue} />

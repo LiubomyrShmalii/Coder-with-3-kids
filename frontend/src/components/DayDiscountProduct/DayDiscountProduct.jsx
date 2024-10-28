@@ -28,7 +28,6 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
   
   console.log(discountedProducts);
 
-  // Функція для отримання випадкового товару
   const getRandomProduct = (products) => {
     if (products && products.length > 0) {
       const randomIndex = Math.floor(Math.random() * products.length);

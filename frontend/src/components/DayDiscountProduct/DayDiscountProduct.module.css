@@ -193,7 +193,7 @@ h3 {
   font-weight: 600;
   color: var(--txt-black, #424436);
   text-align: center;
-  line-height: 130%; /* 26px */
+  line-height: 130%;
 }
 
 .addToCartButton:hover {
