@@ -35,6 +35,11 @@
   outline: none;
 }
 
+button{
+visibility: hidden;
+margin-left: -46px;
+}
+
 .checkboxInput {
   display: none;
 }
