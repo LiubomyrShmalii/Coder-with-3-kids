@@ -1,14 +1,39 @@
-import React from 'react';
-import s from './ShoppingCartPage.module.css';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ShoppingCartItem from '../../components/ShoppingCartItem/ShoppingCartItem';
+import React, { useState } from "react";
+import s from "./ShoppingCartPage.module.css";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem";
+import { useForm } from "react-hook-form";
+import { clearBasketAction } from "../../store/reducers/basketReducer";
 
 export default function ShoppingCartPage() {
-  const basketState = useSelector(store => store.basket);
+  const dispatch = useDispatch();
+  const basketState = useSelector((store) => store.basket);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const totalItems = basketState.reduce((total, item) => total + item.count, 0);
-  const totalPrice = basketState.reduce((total, item) => total + (item.discont_price || item.price) * item.count, 0);
+  const totalPrice = basketState.reduce(
+    (total, item) => total + (item.discont_price || item.price) * item.count,
+    0
+  );
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const order = (data) => {
+    console.log({ ...data, cart: basketState, sum: totalPrice });
+    reset();
+    dispatch(clearBasketAction());
+    setIsModalVisible(true);
+  };
+
+  const registerName = register("name");
+  const registerPhone = register("phone");
+  const registerEmail = register("email");
 
   return (
     <div className={s.shoppingCartContainer}>
@@ -16,13 +41,15 @@ export default function ShoppingCartPage() {
         <h2 className={s.title}>Shopping Cart</h2>
         <div className={s.line}></div>
         <Link to="/all_products" className={s.allCategoriesButton}>
-        Back to the store
+          Back to the store
         </Link>
       </div>
 
       {basketState.length === 0 ? (
         <div className={s.emptyCartContainer}>
-          <h2 className={s.emptyTitle}>Looks like you have no items in your basket currently.</h2>
+          <h2 className={s.emptyTitle}>
+            Looks like you have no items in your basket currently.
+          </h2>
           <Link to="/all_products" className={s.continueShoppingButton}>
             Continue Shopping
           </Link>
@@ -44,10 +71,25 @@ export default function ShoppingCartPage() {
             </div>
 
             <div className={s.formContainer}>
-              <form className={s.form}>
-                <input className={s.input} type="text" placeholder="Name" name='name'/>
-                <input className={s.input} type="text" placeholder="Phone number" name='phone'/>
-                <input className={s.input} type="email" placeholder="Email" name='email'/>
+              <form className={s.form} onSubmit={handleSubmit(order)}>
+                <input
+                  className={s.input}
+                  type="text"
+                  placeholder="Name"
+                  {...registerName}
+                />
+                <input
+                  className={s.input}
+                  type="text"
+                  placeholder="Phone number"
+                  {...registerPhone}
+                />
+                <input
+                  className={s.input}
+                  type="email"
+                  placeholder="Email"
+                  {...registerEmail}
+                />
                 <button className={s.button} type="submit">
                   Order
                 </button>
@@ -56,6 +98,24 @@ export default function ShoppingCartPage() {
           </div>
         </div>
       )}
+
+{isModalVisible && (
+  <div className={s.modal} onClick={() => setIsModalVisible(false)}>
+    <div className={s.modalContent} onClick={(e) => e.stopPropagation()}>
+      <button
+        className={s.closeModalButton}
+        onClick={() => setIsModalVisible(false)}
+      >
+        ×
+      </button>
+      <h2>Congratulations!</h2>
+      <p>Your order has been successfully placed on the website.
+      <br /><br />
+        A manager will contact you shortly to confirm your order.
+      </p>
+    </div>
+  </div>
+)}
     </div>
   );
 }
