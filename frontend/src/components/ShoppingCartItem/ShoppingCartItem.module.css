@@ -2,29 +2,24 @@
   display: flex;
   width: 780px;
   align-items: flex-start;
-  gap: 32px;
   border-radius: 12px;
   border: 1px solid var(--grey-divider, #DDD);
-  background: #FFF;
+  background: #a70d0da6;
 
 }
 
 .productImage {
-  width: 200px;
-  height: 180px;
+  max-width: 200px;
+  max-height: 180px;
   border-radius: 12px 0 0 12px;
   border: 1px solid #DDD;
   object-fit: cover;
 }
 
 .itemDetails {
-  display: flex;
-  flex-direction: column;
-  width: 548px;
-  height: 180px;
   justify-content: space-between;
   background-color: aqua;
-  padding: 32px 32px 32px 0;
+  padding: 32px 32px 32px 32px;
 }
 
 .titleAndRemove {

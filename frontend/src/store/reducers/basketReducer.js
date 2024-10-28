@@ -31,7 +31,6 @@ const checkProduct = (state, payload) => {
     target.count += payload.count || 1;
     return [...state];
   } else {
-    // Якщо товару немає в корзині, додаємо його з переданою кількістю
     return [...state, { ...payload, count: payload.count || 1 }];
   }
 };

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./AllProductsPage.module.css";
 import FilterContainer from "../../components/FilterContainer/FilterContainer";
 import ProductsItem from "../../components/ProductsItem/ProductsItem";
+import { Link } from "react-router-dom";
 
 export default function AllProductsPage() {
   const dispatch = useDispatch();
@@ -18,11 +19,15 @@ export default function AllProductsPage() {
     <section className={s.container}>
       <div className={s.breadcrumbs}>
         <div className={s.crumbBox}>
-          <span className={s.crumbText}>Main page</span>
+          <Link to="/" className={s.crumbText}>
+            Main page
+          </Link>
         </div>
         <div className={s.line}></div>
         <div className={s.crumbBox}>
-          <span className={s.crumbTextBlack}>All products</span>
+          <div className={s.crumbTextBlack}>
+            All products
+          </div>
         </div>
       </div>
       <div className={s.head}>
@@ -30,7 +35,8 @@ export default function AllProductsPage() {
       </div>
       <FilterContainer />
       <div className={s.productsGrid}>
-        {productsState.map((productsState) => (
+        {productsState.filter(el=> el.visible)
+        .map((productsState) => (
           <ProductsItem key={productsState.id} {...productsState} />
         ))}
       </div>

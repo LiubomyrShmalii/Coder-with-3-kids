@@ -1,7 +1,11 @@
-import React from 'react';
-import s from './ShoppingCartItem.module.css';
-import { useDispatch } from 'react-redux';
-import { increaseProductQuantityAction, decreaseProductQuantityAction, removeProductFromBasketAction } from '../../store/reducers/basketReducer';
+import React from "react";
+import s from "./ShoppingCartItem.module.css";
+import { useDispatch } from "react-redux";
+import {
+  increaseProductQuantityAction,
+  decreaseProductQuantityAction,
+  removeProductFromBasketAction,
+} from "../../store/reducers/basketReducer";
 
 export default function ShoppingCartItem({ item }) {
   const dispatch = useDispatch();
@@ -24,22 +28,36 @@ export default function ShoppingCartItem({ item }) {
 
   return (
     <div className={s.cartItem}>
-      <img src={`http://localhost:3333${item.image}`} alt={item.title} className={s.productImage} />
-      
+      <img
+        src={`http://localhost:3333${item.image}`}
+        alt={item.title}
+        className={s.productImage}
+      />
+
       <div className={s.itemDetails}>
         <div className={s.titleAndRemove}>
           <p className={s.productTitle}>{item.title}</p>
-          <button className={s.removeItem} onClick={handleRemove}>×</button>
+          <button className={s.removeItem} onClick={handleRemove}>
+            ×
+          </button>
         </div>
         <div className={s.quantityAndPrice}>
           <div className={s.quantityContainer}>
-            <button className={s.quantityButton} onClick={handleDecrease}>-</button>
+            <button className={s.quantityButton} onClick={handleDecrease}>
+              -
+            </button>
             <span className={s.quantityNumber}>{item.count}</span>
-            <button className={s.quantityButton} onClick={handleIncrease}>+</button>
+            <button className={s.quantityButton} onClick={handleIncrease}>
+              +
+            </button>
           </div>
           <div className={s.priceContainer}>
-            <span className={s.currentPrice}>${item.discont_price || item.price}</span>
-            {item.discont_price && <span className={s.oldPrice}>${item.price}</span>}
+            <span className={s.currentPrice}>
+              ${item.discont_price || item.price}
+            </span>
+            {item.discont_price && (
+              <span className={s.oldPrice}>${item.price}</span>
+            )}
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { getAllCategories } from "../../requests/allCategories";
 import s from "./CategoriesPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
+import { Link } from "react-router-dom";
 
 export default function CategoriesPage() {
   const dispatch = useDispatch();
@@ -17,15 +18,15 @@ export default function CategoriesPage() {
     <section className={s.container}>
       <div className={s.breadcrumbs}>
         <div className={s.crumbBox}>
-          <span className={s.crumbText}>Main page</span>
+          <Link to="/" className={s.crumbText}>
+            Main page
+          </Link>
         </div>
         <div className={s.line}></div>
         <div className={s.crumbBox}>
-          <span className={s.crumbText}>Main page</span>
-        </div>
-        <div className={s.line}></div>
-        <div className={s.crumbBox}>
-          <span className={s.crumbTextBlack}>Categories</span>
+          <div className={s.crumbTextBlack}>
+            Categories
+          </div>
         </div>
       </div>
 

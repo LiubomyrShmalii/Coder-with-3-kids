@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleProduct } from "../../requests/allProducts";
-import { useParams } from "react-router-dom";
+import { getProductsByCategory, getSingleProduct } from "../../requests/allProducts";
+import { Link, useParams } from "react-router-dom";
 import { PiHeartFill } from "react-icons/pi";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
@@ -25,8 +25,23 @@ export default function SingleProductPage() {
   const productState = useSelector((store) => store.singleProduct);
   const favoriteProducts = useSelector((store) => store.favorites);
 
+  const numerOfCategory = productState?.categoryId;
+
+  useEffect(() => {
+    if (numerOfCategory) {
+      dispatch(getProductsByCategory(numerOfCategory));
+    }
+  }, [dispatch, numerOfCategory]);
+
+  const productsByCategoryState = useSelector(
+    (store) => store.productsByCategory
+  );
+
+  const categoryObj = productsByCategoryState?.category;
+  const categoryName = categoryObj?.title || "Unknown Category";
+
   const isInFavorites = favoriteProducts.some(
-    (product) => product.id === productState.id
+    (product) => product.id === productState?.id
   );
 
   const handleIncrease = () => {
@@ -38,31 +53,35 @@ export default function SingleProductPage() {
   };
 
   const handleAddToCart = () => {
-    dispatch(
-      addProductToBasketAction({
-        id: productState.id,
-        discont_price: productState.discont_price,
-        price: productState.price,
-        title: productState.title,
-        image: productState.image,
-        count: quantity,
-      })
-    );
-  };
-
-  const handleFavoriteClick = () => {
-    if (isInFavorites) {
-      dispatch(removeProductFromFavoritesAction(productState.id));
-    } else {
+    if (productState) {
       dispatch(
-        addProductToFavoritesAction({
+        addProductToBasketAction({
           id: productState.id,
           discont_price: productState.discont_price,
           price: productState.price,
           title: productState.title,
           image: productState.image,
+          count: quantity,
         })
       );
+    }
+  };
+
+  const handleFavoriteClick = () => {
+    if (productState) {
+      if (isInFavorites) {
+        dispatch(removeProductFromFavoritesAction(productState.id));
+      } else {
+        dispatch(
+          addProductToFavoritesAction({
+            id: productState.id,
+            discont_price: productState.discont_price,
+            price: productState.price,
+            title: productState.title,
+            image: productState.image,
+          })
+        );
+      }
     }
   };
 
@@ -78,15 +97,37 @@ export default function SingleProductPage() {
     <section className={s.container}>
       <div className={s.breadcrumbs}>
         <div className={s.crumbBox}>
-          <span className={s.crumbText}>Main page</span>
+          <Link to="/" className={s.crumbText}>
+            Main page
+          </Link>
         </div>
         <div className={s.line}></div>
         <div className={s.crumbBox}>
-          <span className={s.crumbTextBlack}>All products</span>
+          <Link to="/categories" className={s.crumbText}>
+            Categories
+          </Link>
         </div>
+        <div className={s.line}></div>
+        {productState.categoryId && (
+          <div className={s.crumbBox}>
+            <Link to={`/categories/${productState.categoryId}`} className={s.crumbText}>
+              {categoryName}
+            </Link>
+          </div>
+        )}
+        <div className={s.line}></div>
+        {productState.title ? (
+          <div className={s.crumbBox}>
+            <div className={s.crumbTextBlack}>{productState.title}</div>
+          </div>
+        ) : (
+          <div className={s.crumbBox}>
+            <div className={s.crumbTextBlack}>Loading...</div>
+          </div>
+        )}
       </div>
 
-      {productState && (
+      {productState ? (
         <div className={s.productDetails}>
           <div className={s.imageContainer}>
             <img
@@ -153,6 +194,8 @@ export default function SingleProductPage() {
             </div>
           </div>
         </div>
+      ) : (
+        <p>Loading...</p>
       )}
 
       {isModalOpen && (

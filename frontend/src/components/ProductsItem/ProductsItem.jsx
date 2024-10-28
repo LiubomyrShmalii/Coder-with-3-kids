@@ -2,14 +2,8 @@ import React from "react";
 import s from "./ProductsItem.module.css";
 import { Link } from "react-router-dom";
 import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
-import {
-  addProductToBasketAction,
-  removeProductFromBasketAction,
-} from "../../store/reducers/basketReducer";
-import {
-  addProductToFavoritesAction,
-  removeProductFromFavoritesAction,
-} from "../../store/reducers/favoritesReducer";
+import { addProductToBasketAction, removeProductFromBasketAction } from "../../store/reducers/basketReducer";
+import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function ProductsItem({
