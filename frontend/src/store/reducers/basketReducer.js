@@ -2,6 +2,7 @@ const ADD_PRODUCT_TO_BASKET = 'ADD_PRODUCT_TO_BASKET';
 const REMOVE_PRODUCT_FROM_BASKET = 'REMOVE_PRODUCT_FROM_BASKET';
 const INCREASE_PRODUCT_QUANTITY = 'INCREASE_PRODUCT_QUANTITY';
 const DECREASE_PRODUCT_QUANTITY = 'DECREASE_PRODUCT_QUANTITY';
+const CLEAR_BASKET = 'CLEAR_BASKET';
 
 export const addProductToBasketAction = product => ({
   type: ADD_PRODUCT_TO_BASKET, 
@@ -21,6 +22,10 @@ export const increaseProductQuantityAction = productId => ({
 export const decreaseProductQuantityAction = productId => ({
   type: DECREASE_PRODUCT_QUANTITY, 
   payload: productId 
+});
+
+export const clearBasketAction = () => ({
+  type: CLEAR_BASKET 
 });
 
 const checkProduct = (state, payload) => {
@@ -74,6 +79,8 @@ export const basketReducer = (state = loadStateFromLocalStorage(), action) => {
     newState = increaseProductQuantity(state, action.payload);
   } else if (action.type === DECREASE_PRODUCT_QUANTITY) {
     newState = decreaseProductQuantity(state, action.payload);
+  } else if (action.type === CLEAR_BASKET) {
+    newState = [];
   } else {
     newState = state;
   }
