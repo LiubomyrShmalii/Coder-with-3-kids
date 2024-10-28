@@ -1,17 +1,23 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from "../../assets/images/Header_logo.svg";
 import DayNigth from "../../assets/icons/Header_day-night.svg";
 import s from "./Header.module.css";
 import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { useSelector } from "react-redux";
+import DayDiscountProduct from '../DayDiscountProduct/DayDiscountProduct';
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const basketState = useSelector((store) => store.basket);
   const favoritesState = useSelector((store) => store.favorites);
 
   const totalItems = basketState.reduce((total, item) => total + item.count, 0);
   const totalFavorites = favoritesState.length;
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <header className={s.header}>
@@ -23,7 +29,7 @@ export default function Header() {
       </div>
 
       <div className={s.nav_button}>
-        <button className={s.discount_button}>1 day discount!</button>
+        <div onClick={openModal} className={s.discount_button}>1 day discount!</div>
         <nav className={s.navigation}>
           <NavLink
             to="/"
@@ -72,6 +78,8 @@ export default function Header() {
           {totalItems > 0 && <div className={s.cartBadge}>{totalItems}</div>}
         </Link>
       </div>
+
+      <DayDiscountProduct isOpen={isModalOpen} onClose={closeModal} />
     </header>
   );
 }
