@@ -35,11 +35,6 @@
   outline: none;
 }
 
-button{
-visibility: hidden;
-margin-left: -46px;
-}
-
 .checkboxInput {
   display: none;
 }
@@ -53,8 +48,8 @@ margin-left: -46px;
 .checkmark {
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-small, 6px);
-  border: 1px solid var(--grey-divider, #DDD);
+  border-radius: 6px;
+  border: 1px solid #DDD;
   background: #FFF;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -85,8 +80,8 @@ margin-left: -46px;
   padding: 8px 8px 8px 16px;
   align-items: center;
   gap: 8px;
-  border-radius: var(--radius-small, 6px);
-  border: 1px solid var(--grey-divider, #DDD);
+  border-radius: 6px;
+  border: 1px solid  #DDD;
   background: #FFF;
 }
 
@@ -109,5 +104,12 @@ margin-left: -46px;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: var(--txt-black, #424436);
+  color: #424436;
+}
+
+.errorText {
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-top: 4px;
 }

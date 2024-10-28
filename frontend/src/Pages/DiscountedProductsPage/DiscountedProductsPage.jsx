@@ -11,7 +11,7 @@ export default function DiscountedProductsPage() {
 
   useEffect(() => {
     dispatch(getAllProducts);
-  }, []);
+  }, [dispatch]);
 
   const productsState = useSelector((store) => store.products);
   const products = productsState.filter(

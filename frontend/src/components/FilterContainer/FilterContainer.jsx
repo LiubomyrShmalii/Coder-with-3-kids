@@ -7,34 +7,78 @@ export default function FilterContainer() {
 
   const dispatch = useDispatch();
 
-
-
   const [checked, setChecked] = useState(false);
   const handlCheck = () => setChecked(!checked);
-  const handlClick = e => dispatch(getCheapProductsAction(e.target.checked))
+  
+  const handlClick = e => dispatch(getCheapProductsAction(e.target.checked));
 
   const handlOrder = e => dispatch(sortAllProductsAction(e.target.value));
 
-  const [ minValue, setMinValue ] = useState(0);
-  const [ maxValue, setMaxValue ] = useState(Infinity);
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(Infinity);
+  const [error, setError] = useState(null);
 
+  const handleMinValue = e => {
+    const value = e.target.value || 0;
+    setMinValue(value);
+    validatePriceRange(value, maxValue);
+  };
 
-  const handleMinValue = e => setMinValue(e.target.value || 0);
-  const handleMaxValue = e => setMaxValue(e.target.value || Infinity);
+  const handleMaxValue = e => {
+    const value = e.target.value || Infinity;
+    setMaxValue(value);
+    validatePriceRange(minValue, value);
+  };
+
+  const validatePriceRange = (min, max) => {
+    if (min > max) {
+      setError("Minimum price cannot be higher than maximum price.");
+    } else {
+      setError(null);
+    }
+  };
 
   useEffect(() => {
-    dispatch(filterByPriceAction({
-      min: minValue,
-      max: maxValue
-    }))
-  }, [minValue, maxValue]);
+    if (!error) {
+      dispatch(
+        filterByPriceAction({
+          min: minValue,
+          max: maxValue
+        })
+      );
+    }
+  }, [dispatch, minValue, maxValue, error]);
+
+  useEffect(() => {
+    if (!checked && !error) {
+      dispatch(
+        filterByPriceAction({
+          min: minValue,
+          max: maxValue
+        })
+      );
+    }
+  }, [dispatch, checked, minValue, maxValue, error]);
 
   return (
     <div className={s.filterContainer}>
       <div className={s.filterItem}>
         <span className={s.filterLabel}>Price: </span>
-        <input className={s.priceInput} type='number' placeholder='from' name='min_price' onChange={handleMinValue} />
-        <input className={s.priceInput} type='number' placeholder='to' name='max_price' onChange={handleMaxValue} />
+        <input
+          className={s.priceInput}
+          type="number"
+          placeholder="from"
+          name="min_price"
+          onChange={handleMinValue}
+        />
+        <input
+          className={s.priceInput}
+          type="number"
+          placeholder="to"
+          name="max_price"
+          onChange={handleMaxValue}
+        />
+        {error && <span className={s.errorText}>{error}</span>}
       </div>
 
       <div className={s.filterItem}>

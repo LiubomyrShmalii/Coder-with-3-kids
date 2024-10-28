@@ -17,22 +17,34 @@ export const loadAllFavoritesAction = favorites => ({
   payload: favorites
 });
 
-export const favoritesReducer = (state = [], action) => {
-  if (action.type === LOAD_ALL_FAVORITES) {
-    return action.payload;
-  }
+const loadFavoritesFromLocalStorage = () => {
+  const storedFavorites = localStorage.getItem("favorites");
+  return storedFavorites ? JSON.parse(storedFavorites) : [];
+};
 
-  if (action.type === ADD_PRODUCT_TO_FAVORITE) {
+const saveFavoritesToLocalStorage = (favorites) => {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+};
+
+export const favoritesReducer = (state = loadFavoritesFromLocalStorage(), action) => {
+  let newState;
+
+  if (action.type === LOAD_ALL_FAVORITES) {
+    newState = action.payload;
+  } else if (action.type === ADD_PRODUCT_TO_FAVORITE) {
     const productExists = state.find(product => product.id === action.payload.id);
     if (productExists) {
-      return state;
+      newState = state;
+    } else {
+      newState = [...state, action.payload];
     }
-    return [...state, action.payload];
+  } else if (action.type === REMOVE_PRODUCT_FROM_FAVORITE) {
+    newState = state.filter(product => product.id !== action.payload);
+  } else {
+    newState = state;
   }
 
-  if (action.type === REMOVE_PRODUCT_FROM_FAVORITE) {
-    return state.filter(product => product.id !== action.payload);
-  }
+  saveFavoritesToLocalStorage(newState);
 
-  return state;
+  return newState;
 };

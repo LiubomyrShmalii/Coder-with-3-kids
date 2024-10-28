@@ -11,7 +11,7 @@ export default function AllProductsPage() {
 
   useEffect(() => {
     dispatch(getAllProducts);
-  }, []);
+  }, [dispatch]);
 
   const productsState = useSelector((store) => store.products);
 
