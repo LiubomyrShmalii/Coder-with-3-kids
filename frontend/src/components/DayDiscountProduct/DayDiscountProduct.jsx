@@ -3,12 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./DayDiscountProduct.module.css";
 import { getAllProducts } from "../../requests/allProducts";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
-import {
-  addProductToFavoritesAction,
-  removeProductFromFavoritesAction,
-} from "../../store/reducers/favoritesReducer";
+import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import { PiHeartFill } from "react-icons/pi";
-import { Link } from "react-router-dom";
 
 export default function DayDiscountProduct({ isOpen, onClose }) {
   const dispatch = useDispatch();
@@ -16,22 +12,13 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
 
   const productsState = useSelector((store) => store.products);
   const favoriteProducts = useSelector((store) => store.favorites);
-  console.log(productsState );
-  
-  const discountedProducts = productsState.filter(product => {
-    if (product.discont_price !== null) {
-      const discountPercentage = ((product.price - product.discont_price) / product.price) * 100;
-      return discountPercentage >= 50;
-    }
-    return false;
-  });
-  
-  console.log(discountedProducts);
 
   const getRandomProduct = (products) => {
     if (products && products.length > 0) {
       const randomIndex = Math.floor(Math.random() * products.length);
-      return { ...products[randomIndex], discount: 50 };
+      const selectedProduct = { ...products[randomIndex] };
+      selectedProduct.discont_price = selectedProduct.price * 0.5;
+      return selectedProduct;
     }
     return null;
   };
@@ -41,9 +28,21 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isOpen) {
-      const selectedProduct = getRandomProduct(productsState);
-      setRandomProduct(selectedProduct);
+    if (productsState.length > 0 && isOpen) {
+      const storedData = JSON.parse(localStorage.getItem("discountedProduct"));
+      const today = new Date().toISOString().slice(0, 10);
+
+      if (storedData && storedData.date === today) {
+        setRandomProduct(storedData.product);
+      } else {
+        const selectedProduct = getRandomProduct(productsState);
+        setRandomProduct(selectedProduct);
+
+        localStorage.setItem(
+          "discountedProduct",
+          JSON.stringify({ product: selectedProduct, date: today })
+        );
+      }
     }
   }, [isOpen, productsState]);
 
@@ -74,18 +73,23 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
     }
   };
 
-  if (!isOpen || !randomProduct) return null;
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains(s.modalOverlay)) {
+      onClose();
+    }
+  };
 
+  if (!isOpen || !randomProduct) return null;
 
   const isInFavorites = favoriteProducts.some(
     (product) => product.id === randomProduct.id
   );
 
   return (
-    <div className={s.modalOverlay}>
+    <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modalContent}>
         <div className={s.header}>
-          <h3>50% discount on product of the day!</h3>
+          <h3 className={s.title}>50% discount on product of the day!</h3>
           <button onClick={onClose} className={s.closeButton}>
             ×
           </button>
@@ -94,29 +98,20 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
         <div className={s.productCard}>
           {randomProduct.discont_price && (
             <div className={s.discountBadge}>
-              -
-              {Math.round(
-                ((randomProduct.price - randomProduct.discont_price) /
-                  randomProduct.price) *
-                  100
-              )}
-              %
+              -{Math.round(((randomProduct.price - randomProduct.discont_price) / randomProduct.price) *100)}%
             </div>
           )}
-
-          <Link to={`/products/${randomProduct.id}`}>
-            <img
-              src={`http://localhost:3333${randomProduct.image}`}
-              alt={randomProduct.title}
-              className={s.productImage}
-            />
-            <h3 className={s.productTitle}>{randomProduct.title}</h3>
-          </Link>
+          <img
+            src={`http://localhost:3333${randomProduct.image}`}
+            alt={randomProduct.title}
+            className={s.productImage}
+          />
+          <h3 className={s.productTitle}>{randomProduct.title}</h3>
 
           <div className={s.priceContainer}>
             {randomProduct.discont_price ? (
               <>
-                <span className={s.price}>${randomProduct.discont_price}</span>
+                <span className={s.price}>${randomProduct.discont_price.toFixed(2)}</span>
                 <span className={s.originalPrice}>${randomProduct.price}</span>
               </>
             ) : (
@@ -127,9 +122,7 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
           <div className={s.icons}>
             <div className={s.iconHeartContainer}>
               <PiHeartFill
-                className={`${s.iconHeart} ${
-                  isInFavorites ? s.inFavorites : ""
-                }`}
+                className={`${s.iconHeart} ${isInFavorites ? s.inFavorites : ""}`}
                 onClick={handleFavoriteClick}
               />
             </div>

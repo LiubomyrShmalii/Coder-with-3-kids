@@ -10,7 +10,7 @@ export default function CategoriesPage() {
 
   useEffect(() => {
     dispatch(getAllCategories);
-  }, []);
+  }, [dispatch]);
 
   const categories = useSelector((store) => store.categories);
 

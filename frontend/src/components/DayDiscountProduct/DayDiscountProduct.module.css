@@ -13,15 +13,12 @@
 
 .modalContent {
   display: flex;
-  width: 548px;
+  max-width: 548px;
   padding: 32px;
-  align-items: flex-start;
   gap: 16px;
   border-radius: 12px;
-  background: var(--green, #92A134);
-  color: var(--txt-white, #FFF);
+  background: #92A134;
   flex-direction: column;
-  position: relative;
 }
 
 .header {
@@ -31,11 +28,11 @@
   width: 100%;
 }
 
-h3 {
-  font-family: Montserrat;
+.title {
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 600;
-  line-height: 110%;
+  color: #FFF;
 }
 
 .closeButton {
@@ -43,7 +40,7 @@ h3 {
   height: 44px;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 40px;
   cursor: pointer;
   color: white;
 }
@@ -52,19 +49,17 @@ h3 {
   position: relative;
   border-radius: 12px;
   border: 1px solid #ddd;
-  background-color: #fff;
+  background-color: #ffffff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease;
+  width: 100%;
 }
-
 
 .productImage {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
 }
@@ -91,9 +86,7 @@ h3 {
   gap: 10px;
 }
 
-.iconHeart,
-.iconCart {
-  position: relative;
+.iconHeart {
   width: 48px;
   height: 48px;
   cursor: pointer;
@@ -103,9 +96,7 @@ h3 {
   transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-.iconHeartContainer,
-.iconCartContainer {
-  position: relative;
+.iconHeartContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,14 +106,8 @@ h3 {
   border-radius: 8px;
 }
 
-.iconHeart:hover,
-.iconCart:hover {
+.iconHeart:hover {
   transform: scale(1.1);
-}
-
-.inCart {
-  fill: #92a134;
-  stroke: none;
 }
 
 .inFavorites {
@@ -134,7 +119,7 @@ h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  color: var(--txt-black, #424436);
+  color: #424436;
   margin: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -145,13 +130,6 @@ h3 {
   box-orient: vertical;
   height: 48px;
   line-height: 1.2em;
-}
-
-.productTitle::after {
-  content: "";
-  display: block;
-  height: 1.2em;
-  opacity: 0;
 }
 
 .priceContainer {
@@ -184,14 +162,14 @@ h3 {
   align-items: center;
   gap: 10px;
   align-self: stretch;
-  border-radius: var(--radius-small, 6px);
-  background: var(--white, #FFFFF1);
+  border-radius: 6px;
+  background: #FFFFF1;
   cursor: pointer;
   border: none;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  color: var(--txt-black, #424436);
+  color: #424436;
   text-align: center;
   line-height: 130%;
 }

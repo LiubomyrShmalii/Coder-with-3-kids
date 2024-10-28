@@ -23,7 +23,6 @@ export const decreaseProductQuantityAction = productId => ({
   payload: productId 
 });
 
-// Функція для перевірки, чи є товар в корзині
 const checkProduct = (state, payload) => {
   const target = state.find(el => el.id === payload.id);
 
@@ -53,24 +52,33 @@ const decreaseProductQuantity = (state, productId) => {
 
 const removeProduct = (state, productId) => {
   return state.filter(el => el.id !== productId);
+};
+
+const loadStateFromLocalStorage = () => {
+  const storedState = localStorage.getItem("basket");
+  return storedState ? JSON.parse(storedState) : [];
+};
+
+const saveStateToLocalStorage = (state) => {
+  localStorage.setItem("basket", JSON.stringify(state));
 }
 
-export const basketReducer = (state = [], action) => {
+export const basketReducer = (state = loadStateFromLocalStorage(), action) => {
+  let newState;
+
   if (action.type === ADD_PRODUCT_TO_BASKET) {
-    return checkProduct(state, action.payload);
+    newState = checkProduct(state, action.payload);
+  } else if (action.type === REMOVE_PRODUCT_FROM_BASKET) {
+    newState = removeProduct(state, action.payload);
+  } else if (action.type === INCREASE_PRODUCT_QUANTITY) {
+    newState = increaseProductQuantity(state, action.payload);
+  } else if (action.type === DECREASE_PRODUCT_QUANTITY) {
+    newState = decreaseProductQuantity(state, action.payload);
+  } else {
+    newState = state;
   }
 
-  if (action.type === REMOVE_PRODUCT_FROM_BASKET) {
-    return removeProduct(state, action.payload);
-  }
+  saveStateToLocalStorage(newState);
 
-  if (action.type === INCREASE_PRODUCT_QUANTITY) {
-    return increaseProductQuantity(state, action.payload);
-  }
-
-  if (action.type === DECREASE_PRODUCT_QUANTITY) {
-    return decreaseProductQuantity(state, action.payload);
-  }
-  
-  return state;
+  return newState;
 };
