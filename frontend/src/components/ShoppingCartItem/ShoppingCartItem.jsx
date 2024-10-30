@@ -6,6 +6,7 @@ import {
   decreaseProductQuantityAction,
   removeProductFromBasketAction,
 } from "../../store/reducers/basketReducer";
+import imageBaseUrl from "../../config.js";
 
 export default function ShoppingCartItem({ item }) {
   const dispatch = useDispatch();

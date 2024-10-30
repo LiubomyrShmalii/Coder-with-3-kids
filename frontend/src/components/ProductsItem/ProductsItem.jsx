@@ -5,6 +5,7 @@ import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { addProductToBasketAction, removeProductFromBasketAction } from "../../store/reducers/basketReducer";
 import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import { useDispatch, useSelector } from "react-redux";
+import imageBaseUrl from "../../config.js";
 
 export default function ProductsItem({
   id,

@@ -1,0 +1,25 @@
+/* ScrollToTopButton.css */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #00a651; /* Колір кнопки - зелений */
+  color: white; /* Колір стрілки */
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Кругла форма */
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Тінь для кнопки */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.8; /* Початкова прозорість */
+}
+
+.scroll-to-top:hover {
+  opacity: 1; /* Збільшує прозорість при наведенні */
+  transform: scale(1.1); /* Трохи збільшує розмір при наведенні */
+}

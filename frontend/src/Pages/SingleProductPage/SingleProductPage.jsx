@@ -7,6 +7,7 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
 import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import s from "./SingleProductPage.module.css";
+import imageBaseUrl from "../../config.js";
 
 export default function SingleProductPage() {
   const { id } = useParams();

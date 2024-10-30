@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./CategoryItem.module.css";
 import { Link } from "react-router-dom";
+import imageBaseUrl from "../../config.js";
 
 export default function CategoryItem({ id, image, title}) {
   return (

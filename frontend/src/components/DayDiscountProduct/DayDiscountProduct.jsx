@@ -5,6 +5,7 @@ import { getAllProducts } from "../../requests/allProducts";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
 import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import { PiHeartFill } from "react-icons/pi";
+import imageBaseUrl from "../../config.js";
 
 export default function DayDiscountProduct({ isOpen, onClose }) {
   const dispatch = useDispatch();

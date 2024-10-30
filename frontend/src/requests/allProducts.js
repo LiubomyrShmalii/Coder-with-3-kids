@@ -1,6 +1,7 @@
 import { loadAllProductsAction } from "../store/reducers/allProductsReducer";
 import { loadProductsByCategoryAction } from "../store/reducers/productsByCategory";
 import { loadSingleProductAction } from "../store/reducers/singleProductReducer";
+import imageBaseUrl from "../config.js";
 
 export const getAllProducts = (dispatch) => {
   fetch(`${imageBaseUrl}/products/all`)

@@ -7,13 +7,16 @@ import Layout from './Pages/Layout/Layout.jsx';
 import MainPage from './Pages/MainPage/MainPage';
 import ProductsByCategoryPage from './Pages/ProductsByCategoryPage/ProductsByCategoryPage';
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
+import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
+import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'; // Додаємо імпорт
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
 
 function App() {
   return (
     <div>
+      {/* Розміщуємо компонент ScrollToTopButton тут */}
+      <ScrollToTopButton />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<MainPage />} />

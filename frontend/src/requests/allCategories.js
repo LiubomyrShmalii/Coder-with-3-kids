@@ -1,4 +1,5 @@
 import { loadAllCategoriesAction } from "../store/reducers/allCategoriesReducer";
+import imageBaseUrl from "../config.js";
 
 export const getAllCategories = (dispatch) => {
   fetch(`${imageBaseUrl}/categories/all`)
