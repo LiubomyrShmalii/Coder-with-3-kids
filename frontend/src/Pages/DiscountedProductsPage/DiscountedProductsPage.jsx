@@ -36,7 +36,7 @@ export default function DiscountedProductsPage() {
       <div className={s.head}>
         <h2 className={s.title}>Discounted items</h2>
       </div>
-      <FilterContainer />
+      <FilterContainer showDiscountFilter={false} />
       <div className={s.productsGrid}>
         {products.map((products) => (
           <ProductsItem key={products.id} {...products} />

@@ -4,8 +4,8 @@ import s from "./FavoriteProductsPage.module.css";
 import ProductsItem from "../../components/ProductsItem/ProductsItem";
 import FilterContainer from "../../components/FilterContainer/FilterContainer";
 import { Link } from "react-router-dom";
-import cactus from "../../assets/images/Error404Page_cactus.svg";
-import fourImage from "../../assets/images/Error404Page_4.svg";
+import cactus from "../../assets/images/Error404Page_cactus.png";
+import fourImage from "../../assets/images/Error404Page_4.png";
 
 export default function FavoriteProductsPage() {
   const favoriteProducts = useSelector((state) => state.favorites);

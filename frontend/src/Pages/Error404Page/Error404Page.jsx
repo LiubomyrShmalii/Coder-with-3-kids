@@ -1,7 +1,7 @@
-import cactus from "../../assets/images/Error404Page_cactus.svg";
+import cactus from "../../assets/images/Error404Page_cactus.png";
 import React from "react";
 import s from "./Error404Page.module.css";
-import fourImage from "../../assets/images/Error404Page_4.svg";
+import fourImage from "../../assets/images/Error404Page_4.png";
 import { Link } from "react-router-dom";
 
 export default function Error404Page() {

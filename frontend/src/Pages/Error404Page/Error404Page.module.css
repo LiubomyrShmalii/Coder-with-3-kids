@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background-color: #fffff1;
+  background-color: var(--background-color);
   font-family: "Montserrat", normal;
   text-align: center;
   color: #92A134;
@@ -16,10 +16,11 @@
 .errorImage {
   width: 300px;
   height: 270px;
+  fill: #8B8B8B;
 }
 
 .errorText {
-  color: black;
+  color: var(--color);
   text-align: center;
   font-family: "Montserrat";
   font-size: 64px;

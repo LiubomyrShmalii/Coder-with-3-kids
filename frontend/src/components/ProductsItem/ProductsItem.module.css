@@ -1,8 +1,8 @@
 .productCard {
   position: relative;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border: 1px solid var(--border);
+  background-color: var(--background-color-another);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  color: var(--txt-black, #424436);
+  color: var(--color);
   margin: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -119,7 +119,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 600;
-  color: #424436;
+  color: var(--color);
 }
 
 .originalPrice {
