@@ -2,8 +2,8 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 40px 120px 40px;
-  background-color: #fffff1;
+  padding: 80px 40px 80px 40px;
+  background-color: var(--background-color);
 }
 
 .head {
@@ -14,7 +14,7 @@
 }
 
 .title {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat", normal;
   font-size: 64px;
   font-weight: 700;
@@ -29,7 +29,7 @@
 }
 
 .allCategoriesButton {
-  background-color: #fffff1;
+  background-color: var(--background-color);
   color: #898989dd;
   font-family: "Montserrat";
   font-size: 18px;

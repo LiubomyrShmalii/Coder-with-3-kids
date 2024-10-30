@@ -42,22 +42,36 @@ export default function ShoppingCartItem({ item }) {
           </button>
         </div>
         <div className={s.quantityAndPrice}>
-          <div className={s.quantityContainer}>
-            <button className={s.quantityButton} onClick={handleDecrease}>
+          <div className={s.quantityControl}>
+            <div className={s.boxMinus} onClick={handleDecrease}>
               -
-            </button>
-            <span className={s.quantityNumber}>{item.count}</span>
-            <button className={s.quantityButton} onClick={handleIncrease}>
+            </div>
+            <div className={s.quantity}>{item.count}</div>
+            <div className={s.boxPlus} onClick={handleIncrease}>
               +
-            </button>
+            </div>
           </div>
-          <div className={s.priceContainer}>
-            <span className={s.currentPrice}>
-              ${item.discont_price || item.price}
-            </span>
+          <div className={s.priceBlock}>
+            <div className={s.priceWrapper}>
+              <span className={s.currentPrice}>
+                ${item.discont_price || item.price}
+              </span>
+              {item.discont_price && (
+                <span className={s.originalPrice}>${item.price}</span>
+              )}
+
+            </div>
             {item.discont_price && (
-              <span className={s.oldPrice}>${item.price}</span>
-            )}
+                <div className={s.discountBadge}>
+                  <span className={s.discountText}>
+                    -
+                    {Math.round(
+                      ((item.price - item.discont_price) / item.price) * 100
+                    )}
+                    %
+                  </span>
+                </div>
+              )}
           </div>
         </div>
       </div>

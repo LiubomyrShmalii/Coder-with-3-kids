@@ -1,5 +1,5 @@
 .discountContainer {
-  background-color: #fffff1;
+  background-color: var(--background-color);
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px 108px 40px;

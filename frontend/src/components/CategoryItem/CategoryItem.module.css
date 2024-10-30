@@ -16,7 +16,7 @@
 }
 
 .categoryTitle {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat";
   font-size: 20px;
   font-weight: 500;

@@ -2,8 +2,8 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px 40px 0px 40px;
-  background-color: #fffff1;
+  padding: 40px 40px 76px 40px;
+  background-color: var(--background-color);
 }
 
 .breadcrumbs {
@@ -18,12 +18,12 @@
   align-items: center;
   padding: 8px 16px;
   border-radius: 8px;
-  background-color: #fffff1;
+  background-color: var(--background-color-bread);
   border: 1px solid #ddd;
 }
 
 .crumbText {
-  color: var(--txt-grey, #8b8b8b);
+  color: #8b8b8b;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -31,7 +31,7 @@
 }
 
 .crumbTextBlack {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -61,43 +61,42 @@
   max-height: 572px;
   height: auto;
   border-radius: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   object-fit: cover;
   object-position: center;
-  background-color: lightgray;
 }
 
 .infoContainer {
   display: flex;
   width: 548px;
   flex-direction: column;
-
   gap: 32px;
 }
 
 .headerRow {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 48px;
   align-items: center;
+  gap: 16px;
   width: 100%;
 }
 
 .productTitle {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 700;
-  line-height: 110%;
-  letter-spacing: 1.2px;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .heartIcon {
   width: 48px;
   height: 48px;
   cursor: pointer;
-  fill: none;
-  stroke: black;
-  stroke-width: 10;
+  fill: var(--fill);
+  stroke: var(--stroke);
+  stroke-width: 8;
   transition: transform 0.3s ease, fill 0.3s ease;
 }
 
@@ -112,27 +111,28 @@
 
 .priceBlock {
   display: flex;
-  align-items: center;
   font-family: "Montserrat", sans-serif;
-  color: #000;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .currentPrice {
-  font-size: 48px;
+  font-size: 64px;
   font-weight: 700;
   margin-right: 16px;
+  color: var(--color);
 }
 
 .originalPrice {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 500;
   color: #8b8b8b;
-  text-decoration: line-through;
-  margin-right: 16px;
+  text-decoration: line-through 2px;
 }
 
 .discountBadge {
-  background-color: #f26d22;
+  background-color: var(--bandage);
   border-radius: 6px;
   padding: 4px 8px;
 }
@@ -148,60 +148,50 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 32px;
 }
 
 .quantityControl {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 58px;
+  
 }
 
 .boxMinus,
 .boxPlus {
-  position: absolute;
   display: flex;
+  font-size: 24px;
   justify-content: center;
   align-items: center;
   width: 58px;
   height: 58px;
   border: 1px solid #ddd;
-  background-color: white;
+  background-color: var(--background-color-bread);
   border-radius: 6px;
   z-index: 1;
-}
-
-.boxMinus {
-  left: -30px;
+  color: var(--plus-minus);
 }
 
 .boxPlus {
-  right: -30px;
+  margin-left: -10px;
 }
 
 .quantity {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 20px;
   width: 96px;
   height: 58px;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: white;
+  background-color: var(--background-color-bread);
   z-index: 0;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 500;
-  color: #424436;
+  margin-left: -10px;
+  color: var(--color);
 }
 
 .addToCartButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 32px;
   background-color: #92a134;
   color: white;
   font-family: "Montserrat", sans-serif;
@@ -209,21 +199,20 @@
   font-weight: 500;
   border-radius: 6px;
   border: none;
-}
-
-.descriptionBox {
-  margin-top: 20px;
+  width: 100%;
+  height: 58px;
 }
 
 .descriptionTitle {
-  color: #424436;
+  color: var(--color);
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .descriptionText {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -276,5 +265,21 @@
 }
 
 .modalCloseIcon:hover {
+  color: #7c8c2b;
+}
+
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: var(--color);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+.readMoreButton:hover {
   color: #7c8c2b;
 }
