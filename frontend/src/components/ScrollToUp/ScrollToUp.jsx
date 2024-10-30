@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './ScrollToTopButton.css'; // Підключення стилів для кнопки
+import { IoIosArrowUp } from "react-icons/io";
+import s from './ScrollToUp.module.css';
 
-export default function ScrollToTopButton() {
+export default function ScrollToUp() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Функція для визначення видимості кнопки при скролі
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > window.innerHeight) {
@@ -18,8 +18,7 @@ export default function ScrollToTopButton() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Функція для прокручування сторінки догори
-  const scrollToTop = () => {
+  const scrollToUp = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -28,8 +27,9 @@ export default function ScrollToTopButton() {
 
   return (
     isVisible && (
-      <div className="scroll-to-top" onClick={scrollToTop}>
-        ↑
+      <div className={s.scroll_to_up} onClick={scrollToUp}>
+        <IoIosArrowUp className={s.arrow} />
+        <span className={s.text}>Go Up</span>
       </div>
     )
   );
