@@ -7,13 +7,15 @@ import Layout from './Pages/Layout/Layout.jsx';
 import MainPage from './Pages/MainPage/MainPage';
 import ProductsByCategoryPage from './Pages/ProductsByCategoryPage/ProductsByCategoryPage';
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
+import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
+import ScrollToUp from '../src/components/ScrollToUp/ScrollToUp.jsx';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
 
 function App() {
   return (
     <div>
+      <ScrollToUp />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<MainPage />} />

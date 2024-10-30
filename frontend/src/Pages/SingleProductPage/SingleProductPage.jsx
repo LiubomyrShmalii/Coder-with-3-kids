@@ -7,6 +7,7 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
 import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import s from "./SingleProductPage.module.css";
+import imageBaseUrl from "../../config.js";
 
 export default function SingleProductPage() {
   const { id } = useParams();
@@ -127,7 +128,7 @@ export default function SingleProductPage() {
         <div className={s.productDetails}>
           <div className={s.imageContainer}>
             <img
-              src={`http://localhost:3333${productState.image}`}
+              src={`${imageBaseUrl}${productState.image}`}
               alt={productState.title}
               className={s.productImage}
               onClick={handleImageClick}
@@ -200,7 +201,7 @@ export default function SingleProductPage() {
               onClick={handleCloseModal}
             />
             <img
-              src={`http://localhost:3333${productState.image}`}
+              src={`${imageBaseUrl}${productState.image}`}
               alt={productState.title}
               className={s.modalImage}
             />

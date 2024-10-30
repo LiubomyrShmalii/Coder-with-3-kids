@@ -5,6 +5,7 @@ import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { addProductToBasketAction, removeProductFromBasketAction } from "../../store/reducers/basketReducer";
 import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
 import { useDispatch, useSelector } from "react-redux";
+import imageBaseUrl from "../../config.js";
 
 export default function ProductsItem({
   id,
@@ -53,7 +54,7 @@ export default function ProductsItem({
 
       <Link to={`/products/${id}`}>
         <img
-          src={`http://localhost:3333${image}`}
+          src={`${imageBaseUrl}${image}`}
           alt={title}
           className={s.productImage}
         />

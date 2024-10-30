@@ -22,7 +22,7 @@ export default function Header() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Змінюємо тему і зберігаємо її в localStorage
+
   useEffect(() => {
     document.body.classList.toggle("dark-theme", isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -37,7 +37,7 @@ export default function Header() {
           <img src={Logo} className={s.logo} alt="logo" />
         </Link>
 
-        {/* Перемикач теми */}
+
         <div className={s.themeSwitch} onClick={toggleTheme}>
           <FiSun className={s.sunIcon} />
           <FaCircle className={`${s.toggleCircle} ${isDarkMode ? s.dark : ''}`} />
@@ -45,7 +45,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Інший контент */}
       <div className={s.nav_button}>
         <div onClick={openModal} className={s.discount_button}>1 day discount!</div>
         <nav className={s.navigation}>

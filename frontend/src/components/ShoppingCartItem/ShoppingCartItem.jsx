@@ -6,6 +6,7 @@ import {
   decreaseProductQuantityAction,
   removeProductFromBasketAction,
 } from "../../store/reducers/basketReducer";
+import imageBaseUrl from "../../config.js";
 
 export default function ShoppingCartItem({ item }) {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export default function ShoppingCartItem({ item }) {
   return (
     <div className={s.cartItem}>
       <img
-        src={`http://localhost:3333${item.image}`}
+        src={`${imageBaseUrl}${item.image}`}
         alt={item.title}
         className={s.productImage}
       />

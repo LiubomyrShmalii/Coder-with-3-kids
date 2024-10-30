@@ -1,0 +1,37 @@
+.scroll_to_up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: #92A134;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.scroll_to_up:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.arrow {
+  font-size: 30px;
+  margin-top: -15px;
+}
+
+.text {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+
+}
