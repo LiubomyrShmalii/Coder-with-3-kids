@@ -7,7 +7,7 @@ export default function CategoryItem({ id, image, title}) {
     <Link to={`/categories/${id}`}>
     <div className={s.categoryCard}>
       <img
-        src={`http://localhost:3333${image}`}
+        src={`${imageBaseUrl}${image}`}
         alt={title}
         className={s.categoryImage}
       />

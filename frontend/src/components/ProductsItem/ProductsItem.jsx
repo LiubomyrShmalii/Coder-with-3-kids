@@ -53,7 +53,7 @@ export default function ProductsItem({
 
       <Link to={`/products/${id}`}>
         <img
-          src={`http://localhost:3333${image}`}
+          src={`${imageBaseUrl}${image}`}
           alt={title}
           className={s.productImage}
         />

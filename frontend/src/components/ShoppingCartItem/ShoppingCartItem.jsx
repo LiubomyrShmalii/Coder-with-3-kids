@@ -29,7 +29,7 @@ export default function ShoppingCartItem({ item }) {
   return (
     <div className={s.cartItem}>
       <img
-        src={`http://localhost:3333${item.image}`}
+        src={`${imageBaseUrl}${item.image}`}
         alt={item.title}
         className={s.productImage}
       />

@@ -102,7 +102,7 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
             </div>
           )}
           <img
-            src={`http://localhost:3333${randomProduct.image}`}
+            src={`${imageBaseUrl}${randomProduct.image}`}
             alt={randomProduct.title}
             className={s.productImage}
           />

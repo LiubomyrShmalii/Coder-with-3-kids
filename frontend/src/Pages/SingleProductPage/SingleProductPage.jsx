@@ -127,7 +127,7 @@ export default function SingleProductPage() {
         <div className={s.productDetails}>
           <div className={s.imageContainer}>
             <img
-              src={`http://localhost:3333${productState.image}`}
+              src={`${imageBaseUrl}${productState.image}`}
               alt={productState.title}
               className={s.productImage}
               onClick={handleImageClick}
@@ -200,7 +200,7 @@ export default function SingleProductPage() {
               onClick={handleCloseModal}
             />
             <img
-              src={`http://localhost:3333${productState.image}`}
+              src={`${imageBaseUrl}${productState.image}`}
               alt={productState.title}
               className={s.modalImage}
             />
