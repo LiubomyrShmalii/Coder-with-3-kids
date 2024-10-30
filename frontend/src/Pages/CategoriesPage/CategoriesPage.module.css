@@ -3,7 +3,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 40px 40px 80px 40px;
-  background-color: #fffff1;
+  background-color: var(--background-color);
 }
 
 .breadcrumbs {
@@ -18,7 +18,7 @@
   align-items: center;
   padding: 8px 16px;
   border-radius: 8px;
-  background-color: #fffff1;
+  background-color: var(--background-color-bread);
   border: 1px solid #ddd;
 }
 
@@ -32,12 +32,12 @@
 }
 
 .crumbTextBlack {
-  color: black;
+  color: var(--color);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 126%;
+  line-height: 126%; 
 }
 
 .line {
@@ -53,7 +53,7 @@
 }
 
 .title {
-  color: black;
+  color: var(--color);
   font-family: "Montserrat", normal;
   font-size: 64px;
   font-weight: 700;

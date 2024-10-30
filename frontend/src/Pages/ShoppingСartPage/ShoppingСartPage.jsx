@@ -31,9 +31,23 @@ export default function ShoppingCartPage() {
     setIsModalVisible(true);
   };
 
-  const registerName = register("name");
-  const registerPhone = register("phone");
-  const registerEmail = register("email");
+  const registerName = register("name", {
+    required: 'The field "Name" is required',
+  });
+  const registerPhone = register("phone", {
+    required: 'The field "Phone" is required',
+    pattern: {
+      value: /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,4}$/,
+      message: 'You entered the wrong phone.'
+    }
+  });
+  const registerEmail = register("email", {
+    required: 'The field "Email" is required',
+    pattern: {
+      value: /^\S+@\S+\.\S+$/,
+      message: 'You entered the wrong e-mail.'
+    }
+  });
 
   return (
     <div className={s.shoppingCartContainer}>
@@ -78,18 +92,21 @@ export default function ShoppingCartPage() {
                   placeholder="Name"
                   {...registerName}
                 />
+                {errors.name && <p>{errors.name?.message}</p>}
                 <input
                   className={s.input}
                   type="text"
                   placeholder="Phone number"
                   {...registerPhone}
                 />
+                {errors.phone && <p>{errors.phone?.message}</p>}
                 <input
                   className={s.input}
                   type="email"
                   placeholder="Email"
                   {...registerEmail}
                 />
+                {errors.email && <p>{errors.email?.message}</p>}
                 <button className={s.button} type="submit">
                   Order
                 </button>
@@ -99,23 +116,24 @@ export default function ShoppingCartPage() {
         </div>
       )}
 
-{isModalVisible && (
-  <div className={s.modal} onClick={() => setIsModalVisible(false)}>
-    <div className={s.modalContent} onClick={(e) => e.stopPropagation()}>
-      <button
-        className={s.closeModalButton}
-        onClick={() => setIsModalVisible(false)}
-      >
-        ×
-      </button>
-      <h2>Congratulations!</h2>
-      <p>Your order has been successfully placed on the website.
-      <br /><br />
-        A manager will contact you shortly to confirm your order.
-      </p>
-    </div>
-  </div>
-)}
+      {isModalVisible && (
+        <div className={s.modal} onClick={() => setIsModalVisible(false)}>
+          <div className={s.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button
+              className={s.closeModalButton}
+              onClick={() => setIsModalVisible(false)}
+            >
+              ×
+            </button>
+            <h2>Congratulations!</h2>
+            <p>
+              Your order has been successfully placed on the website.
+              <br />
+              <br />A manager will contact you shortly to confirm your order.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

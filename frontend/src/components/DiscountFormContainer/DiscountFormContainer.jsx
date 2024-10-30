@@ -19,10 +19,25 @@ export default function DiscountForm() {
     setIsModalVisible(true);
   };
 
-  const registerName = register("name");
-  const registerPhone = register("phone");
-  const registerEmail = register("email");
-
+  const registerName = register("name", {
+    required: 'The field "Name" is required'
+    
+  });
+  const registerPhone = register("phone", {
+    required: 'The field "Phone" is required',
+    pattern: {
+      value: /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,4}$/,
+      message: 'You entered the wrong phone.'
+    }
+  });
+  const registerEmail = register("email", {
+    required: 'The field "Email" is required',
+    pattern: {
+      value: /^\S+@\S+\.\S+$/,
+      message: 'You entered the wrong e-mail.'
+    }
+  });
+  
   return (
     <section className={s.discountContainer}>
       <div className={s.greenContainer}>
@@ -43,18 +58,21 @@ export default function DiscountForm() {
                 placeholder="Name"
                 {...registerName}
               />
+              {errors.name && <p>{errors.name?.message}</p>}
               <input
                 className={s.input}
                 type="text"
                 placeholder="Phone number"
                 {...registerPhone}
               />
+              {errors.phone && <p>{errors.phone?.message}</p>}
               <input
                 className={s.input}
                 type="email"
                 placeholder="Email"
                 {...registerEmail}
               />
+              {errors.email && <p>{errors.email?.message}</p>}
               <button className={s.button} type="submit">
                 Get a discount
               </button>

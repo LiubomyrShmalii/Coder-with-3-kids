@@ -49,10 +49,10 @@ export default function Header() {
       <div className={s.nav_button}>
         <div onClick={openModal} className={s.discount_button}>1 day discount!</div>
         <nav className={s.navigation}>
-          <NavLink to="/" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>Main Page</NavLink>
-          <NavLink to="/categories" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>Categories</NavLink>
-          <NavLink to="/all_products" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>All products</NavLink>
-          <NavLink to="/discounted_products" style={({ isActive }) => isActive ? { textDecoration: "underline" } : undefined}>All sales</NavLink>
+          <NavLink to="/" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>Main Page</NavLink>
+          <NavLink to="/categories" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>Categories</NavLink>
+          <NavLink to="/all_products" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>All products</NavLink>
+          <NavLink to="/discounted_products" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>All sales</NavLink>
         </nav>
       </div>
 

@@ -3,7 +3,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0px 40px 80px 40px;
-  background-color: #FFFFF1;
+  background-color: var(--background-color);
 }
 
 .head {
@@ -14,7 +14,7 @@
 }
 
 .title {
-  color: black;
+  color: var(--color);
   font-family: 'Montserrat', sans-serif;
   font-size: 64px;
   font-weight: 700;
@@ -29,7 +29,7 @@
 }
 
 .allSalesButton {
-  background-color: #FFFFF1;
+  background-color: var(--background-color);
   color: #898989dd;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;

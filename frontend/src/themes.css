@@ -1,24 +1,35 @@
-/* themes.css */
 :root {
-  /* Світла тема */
   --background-color: #fffff1;
-  --text-color: #000000;
-  --border-color: #ddd;
-  --secondary-text-color: #8B8B8B;
-  --title-color: black;
-  --product-background-color: #ffffff;
-  --discount-badge-color: #F26D22;
-  --icon-color: #424436;
+  --navigation-color: black;
+  --stoke-color: black;
+  --color:black;
+  --background-color-footer:#F2F6D3;
+  --background-color-another:white;
+  --border:#DDD;
+  --sun:#8B8B8B;
+  --moon:white;
+  --background-color-bread: #fffff1;
+  --fill:white;
+  --stroke:black;
+  --bandage:#f26d22;
+  --plus-minus:black;
+  --text-color: #424436;
 }
 
 .dark-theme {
-  /* Темна тема */
-  --background-color: #333333;
-  --text-color: #ffffff;
-  --border-color: #555555;
-  --secondary-text-color: #cccccc;
-  --title-color: #ffffff;
-  --product-background-color: #444444;
-  --discount-badge-color: #ff9933;
-  --icon-color: #dddddd;
+  --background-color: #424436;
+  --navigation-color: white;
+  --stoke-color: white;
+  --color:white;
+  --background-color-footer:#383A2C;
+  --background-color-another:#383A2C;
+  --border:#8B8B8B;
+  --sun:white;
+  --moon:#8B8B8B;
+  --background-color-bread: none;
+  --fill:none;
+  --stroke:white;
+  --bandage:#92a134; 
+  --plus-minus:#8B8B8B;
+  --text-color: #DDD;
 }

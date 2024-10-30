@@ -1,5 +1,5 @@
 .footer {
-  background-color: #FFFFF1;
+  background-color: var(--background-color);
   padding: 0px 40px 80px 40px;
   max-width: 1440px;
   margin: 0 auto;
@@ -11,6 +11,7 @@
   text-align: left;
   font-weight: 700;
   margin-bottom: 40px;
+  color: var(--color)
 }
 
 .flexContainer {
@@ -21,7 +22,7 @@
 }
 
 .footerItem {
-  background-color: #F2F6D3;
+  background-color: var(--background-color-footer);
   padding: 32px;
   border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
@@ -49,6 +50,7 @@
   font-family: 'Montserrat', normal;
   font-size: 40px;
   font-weight: 600;
+  color: var(--color);
 }
 
 .socials {
@@ -59,9 +61,11 @@
 .icon {
   width: 40px;
   height: 40px;
+  color: var(--color);
 }
 
 .mapContainer {
+  position: relative;
   margin-top: 20px;
   text-align: center;
   max-width: 1440px;
@@ -72,6 +76,17 @@
   border-radius: 10px;
   width: 100%;
   height: 350px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  border-radius: 10px;
 }
 
 .phoneLink {

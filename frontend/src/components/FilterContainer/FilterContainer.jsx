@@ -3,7 +3,7 @@ import s from "./FilterContainer.module.css";
 import { filterByPriceAction, getCheapProductsAction, sortAllProductsAction } from "../../store/reducers/allProductsReducer";
 import { useDispatch } from "react-redux";
 
-export default function FilterContainer() {
+export default function FilterContainer({ showDiscountFilter = true }) {
 
   const dispatch = useDispatch();
 
@@ -81,18 +81,20 @@ export default function FilterContainer() {
         {error && <span className={s.errorText}>{error}</span>}
       </div>
 
-      <div className={s.filterItem}>
-        <span className={s.filterLabel}>Discounted items</span>
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={handlCheck}
-          onClick={handlClick}
-          className={s.checkboxInput}
-          id="discountedItems"
-        />
-        <label htmlFor="discountedItems" className={s.checkmark}></label>
-      </div>
+      {showDiscountFilter && (
+        <div className={s.filterItem}>
+          <span className={s.filterLabel}>Discounted items</span>
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={handlCheck}
+            onClick={handlClick}
+            className={s.checkboxInput}
+            id="discountedItems"
+          />
+          <label htmlFor="discountedItems" className={s.checkmark}></label>
+        </div>
+      )}
 
       <div className={s.filterItem}>
         <span className={s.filterLabel}>Sorted</span>
