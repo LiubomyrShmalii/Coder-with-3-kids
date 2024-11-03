@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./DayDiscountProduct.module.css";
 import { getAllProducts } from "../../requests/allProducts";
 import { addProductToBasketAction } from "../../store/reducers/basketReducer";
-import { addProductToFavoritesAction, removeProductFromFavoritesAction } from "../../store/reducers/favoritesReducer";
+import {
+  addProductToFavoritesAction,
+  removeProductFromFavoritesAction,
+} from "../../store/reducers/favoritesReducer";
 import { PiHeartFill } from "react-icons/pi";
 import imageBaseUrl from "../../config.js";
 
@@ -99,7 +102,13 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
         <div className={s.productCard}>
           {randomProduct.discont_price && (
             <div className={s.discountBadge}>
-              -{Math.round(((randomProduct.price - randomProduct.discont_price) / randomProduct.price) *100)}%
+              -
+              {Math.round(
+                ((randomProduct.price - randomProduct.discont_price) /
+                  randomProduct.price) *
+                  100
+              )}
+              %
             </div>
           )}
           <img
@@ -112,7 +121,9 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
           <div className={s.priceContainer}>
             {randomProduct.discont_price ? (
               <>
-                <span className={s.price}>${randomProduct.discont_price.toFixed(2)}</span>
+                <span className={s.price}>
+                  ${randomProduct.discont_price.toFixed(2)}
+                </span>
                 <span className={s.originalPrice}>${randomProduct.price}</span>
               </>
             ) : (
@@ -123,7 +134,9 @@ export default function DayDiscountProduct({ isOpen, onClose }) {
           <div className={s.icons}>
             <div className={s.iconHeartContainer}>
               <PiHeartFill
-                className={`${s.iconHeart} ${isInFavorites ? s.inFavorites : ""}`}
+                className={`${s.iconHeart} ${
+                  isInFavorites ? s.inFavorites : ""
+                }`}
                 onClick={handleFavoriteClick}
               />
             </div>

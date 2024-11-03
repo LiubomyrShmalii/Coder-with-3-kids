@@ -1,36 +1,27 @@
-.categories {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 40px 40px 0 40px;
-  background-color: var(--background-color);
-}
-
-.categoryCardSkeleton {
-  text-align: center;
-  transition: transform 0.3s ease;
-  cursor: default;
-}
-
-.categoryImageSkeleton {
-  width: 100%;
-  height: 350px;
-  background-color: #e0e0e0;
+.skeletonItem {
+  background-color: var(--background-color-another);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  height: 100%;
   border-radius: 8px;
   animation: skeletonLoading 1.5s infinite linear;
+  width: 100%;
+  height: 300px;
 }
-
 
 @keyframes skeletonLoading {
   0% {
-    background-color: #e0e0e0;
+    background-color: #f8f9ef;
   }
   50% {
-    background-color: #f0f0f0;
+    background-color: #fafcea;
   }
   100% {
-    background-color: #e0e0e0;
+    background-color: #f2f6d3;
   }
 }

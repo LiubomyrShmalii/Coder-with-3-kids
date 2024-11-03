@@ -29,7 +29,7 @@
 .contentContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 32px;
 }
 
@@ -52,12 +52,13 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding-bottom: 32px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -84,7 +85,6 @@
   font-weight: 500;
   padding: 16px;
   margin-top: 12px;
-
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -94,6 +94,13 @@
 .button:hover {
   background-color: #424436;
   color: white;
+}
+
+.errorMessage {
+  color: #ff403c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .modal {
@@ -111,7 +118,7 @@
 
 .modalContent {
   position: relative;
-  background-color: #92A134;
+  background-color: #92a134;
   padding: 20px;
   border-radius: 12px;
   color: white;
@@ -120,7 +127,7 @@
 }
 
 .modalContent h2 {
-  color: #FFF;
+  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-style: normal;
@@ -130,7 +137,7 @@
 }
 
 .modalContent p {
-  color: #FFF;
+  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -147,4 +154,66 @@
   font-size: 24px;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .contentContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    order: 2;
+  }
+
+  .peopleImage {
+    height: auto;
+    margin: auto;
+  }
+
+  .formContainer {
+    width: 100%;
+    order: 1;
+  }
+
+  .discountContainer {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .discountContainer {
+    padding: 0 20px 56px 20px;
+  }
+
+  .greenContainer {
+    padding: 20px 20px 0 20px;
+  }
+  .formContainer {
+    padding-bottom: 16px;
+  }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+  .contentContainer {
+    gap: 0px;
+  }
+}
+
+@media (max-width: 360px) {
+  .discountContainer {
+    padding: 0 20px 56px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
 }

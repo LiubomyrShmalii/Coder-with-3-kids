@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/images/Header_logo.svg";
 import { FiSun } from "react-icons/fi";
 import { IoMoonOutline } from "react-icons/io5";
 import { FaCircle } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 import s from "./Header.module.css";
 import { PiShoppingCartFill, PiHeartFill } from "react-icons/pi";
 import { useSelector } from "react-redux";
-import DayDiscountProduct from '../DayDiscountProduct/DayDiscountProduct';
+import DayDiscountProduct from "../DayDiscountProduct/DayDiscountProduct";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
+  const [isDarkMode, setIsDarkMode] = useState(
+    () => localStorage.getItem("theme") === "dark"
+  );
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 680);
 
   const basketState = useSelector((store) => store.basket);
   const favoritesState = useSelector((store) => store.favorites);
@@ -21,14 +27,22 @@ export default function Header() {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 680);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("dark-theme", isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
-  const toggleTheme = () => setIsDarkMode(prevMode => !prevMode);
+  const toggleTheme = () => setIsDarkMode((prevMode) => !prevMode);
 
   return (
     <header className={s.header}>
@@ -36,37 +50,94 @@ export default function Header() {
         <Link to="/">
           <img src={Logo} className={s.logo} alt="logo" />
         </Link>
-
-
         <div className={s.themeSwitch} onClick={toggleTheme}>
           <FiSun className={s.sunIcon} />
-          <FaCircle className={`${s.toggleCircle} ${isDarkMode ? s.dark : ''}`} />
+          <FaCircle
+            className={`${s.toggleCircle} ${isDarkMode ? s.dark : ""}`}
+          />
           <IoMoonOutline className={s.moonIcon} />
         </div>
       </div>
 
-      <div className={s.nav_button}>
-        <div onClick={openModal} className={s.discount_button}>1 day discount!</div>
-        <nav className={s.navigation}>
-          <NavLink to="/" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>Main Page</NavLink>
-          <NavLink to="/categories" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>Categories</NavLink>
-          <NavLink to="/all_products" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>All products</NavLink>
-          <NavLink to="/discounted_products" style={({ isActive }) => isActive ? { textDecoration: "underline", textUnderlineOffset: "8px" } : undefined}>All sales</NavLink>
-        </nav>
-      </div>
+      {!isMobileView && (
+        <div className={s.nav_button}>
+          <div onClick={openModal} className={s.discount_button}>
+            1 day discount!
+          </div>
+          <nav className={s.navigation}>
+            <NavLink
+              to="/"
+              style={({ isActive }) =>
+                isActive
+                  ? { textDecoration: "underline", textUnderlineOffset: "8px" }
+                  : undefined
+              }
+            >
+              Main Page
+            </NavLink>
+            <NavLink
+              to="/categories"
+              style={({ isActive }) =>
+                isActive
+                  ? { textDecoration: "underline", textUnderlineOffset: "8px" }
+                  : undefined
+              }
+            >
+              Categories
+            </NavLink>
+            <NavLink
+              to="/all_products"
+              style={({ isActive }) =>
+                isActive
+                  ? { textDecoration: "underline", textUnderlineOffset: "8px" }
+                  : undefined
+              }
+            >
+              All products
+            </NavLink>
+            <NavLink
+              to="/discounted_products"
+              style={({ isActive }) =>
+                isActive
+                  ? { textDecoration: "underline", textUnderlineOffset: "8px" }
+                  : undefined
+              }
+            >
+              All sales
+            </NavLink>
+          </nav>
+        </div>
+      )}
 
       <div className={s.fav_basket}>
         <Link to="/favorite_products" className={s.favoriteContainer}>
           <PiHeartFill className={s.favorite} />
-          {totalFavorites > 0 && <div className={s.favoritesBadge}>{totalFavorites}</div>}
+          {totalFavorites > 0 && (
+            <div className={s.favoritesBadge}>{totalFavorites}</div>
+          )}
         </Link>
         <Link to="/basket" className={s.basketContainer}>
           <PiShoppingCartFill className={s.basket} />
           {totalItems > 0 && <div className={s.cartBadge}>{totalItems}</div>}
         </Link>
+
+        {isMobileView && (
+          <GiHamburgerMenu className={s.burgerMenuIcon} onClick={toggleMenu} />
+        )}
       </div>
 
-      <DayDiscountProduct isOpen={isModalOpen} onClose={closeModal} />
+      {!isMobileView && isModalOpen && (
+        <DayDiscountProduct isOpen={isModalOpen} onClose={closeModal} />
+      )}
+
+      {isMenuOpen && isMobileView && (
+        <BurgerMenu
+          onClose={toggleMenu}
+          isModalOpen={isModalOpen}
+          openModal={openModal}
+          closeModal={closeModal}
+        />
+      )}
     </header>
   );
 }

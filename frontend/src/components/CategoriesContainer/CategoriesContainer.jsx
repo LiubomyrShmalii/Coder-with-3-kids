@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import s from "./CategoriesContainer.module.css";
 import { getAllCategories } from "../../requests/allCategories.js";
 import CategoryItem from "../CategoryItem/CategoryItem.jsx";
-import Skeleton from "../Skeleton/Skeleton"; // Імпортуємо скелетон
+import Skeleton from "../Skeleton/Skeleton";
 
 export default function CategoriesContainer() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true); // Додаємо стан для завантаження
 
   useEffect(() => {
     dispatch(getAllCategories())
-      .then(() => setIsLoading(false))
       .catch((error) => {
-        console.error("Error fetching categories:", error);
-        setIsLoading(false);
+        console.error("Error fetching products:", error);
       });
   }, [dispatch]);
 
   const partCategories = useSelector((store) => store.categories).slice(0, 4);
+  const isLoading = partCategories.length === 0;
+  
 
   return (
     <section className={s.container}>
@@ -33,7 +32,7 @@ export default function CategoriesContainer() {
 
       <div className={s.categories}>
         {isLoading ? (
-          <Skeleton count={4} /> // Використовуємо скелетон для завантаження
+          <Skeleton count={4} />
         ) : (
           partCategories.map((el) => <CategoryItem key={el.id} {...el} />)
         )}
@@ -41,3 +40,4 @@ export default function CategoriesContainer() {
     </section>
   );
 }
+

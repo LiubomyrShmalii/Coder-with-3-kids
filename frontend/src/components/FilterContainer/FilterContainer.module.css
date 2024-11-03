@@ -1,8 +1,10 @@
 .filterContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   align-items: center;
   margin: 40px 0px 40px 0px;
+  max-width: 100%;
 }
 
 .filterItem {
@@ -13,21 +15,21 @@
 
 .filterLabel {
   color: var(--color);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 130%;
 }
 
 .priceInput {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #FFF;
+  background: #fff;
   max-width: 112px;
 }
 
@@ -49,8 +51,8 @@
   width: 36px;
   height: 36px;
   border-radius: 6px;
-  border: 1px solid #DDD;
-  background: #FFF;
+  border: 1px solid #ddd;
+  background: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: inline-block;
@@ -81,13 +83,13 @@
   align-items: center;
   gap: 8px;
   border-radius: 6px;
-  border: 1px solid  #DDD;
-  background: #FFF;
+  border: 1px solid #ddd;
+  background: #fff;
 }
 
 .sortedSelect {
   color: #424436;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 126%;
@@ -101,7 +103,7 @@
 }
 
 .sortedSelect option {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #424436;
@@ -109,7 +111,16 @@
 
 .errorText {
   color: red;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .filterContainer {
+    gap: 20px;
+  }
+  .filterItem {
+    margin-right: 10px;
+  }
 }

@@ -37,7 +37,7 @@ export default function ShoppingCartPage() {
   const registerPhone = register("phone", {
     required: 'The field "Phone" is required',
     pattern: {
-      value: /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,4}$/,
+      value: /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\]?[0-9]{1,4}[-\s\]?[0-9]{1,4}$/,
       message: 'You entered the wrong phone.'
     }
   });
