@@ -1,4 +1,4 @@
-const useRemoteLinks = false;
+const useRemoteLinks = true;
 
 const imageBaseUrl = useRemoteLinks
   ? process.env.REACT_APP_IMAGE_URL_REMOTE
