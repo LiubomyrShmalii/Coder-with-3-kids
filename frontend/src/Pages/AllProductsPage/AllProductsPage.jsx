@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getAllProducts } from "../../requests/allProducts";
 import { useDispatch, useSelector } from "react-redux";
 import s from "./AllProductsPage.module.css";
 import FilterContainer from "../../components/FilterContainer/FilterContainer";
 import ProductsItem from "../../components/ProductsItem/ProductsItem";
 import { Link } from "react-router-dom";
-import CategoriesSkeleton from "../../components/Skeleton/Skeleton";
+import Skeleton from "../../components/Skeleton/Skeleton";
 
 export default function AllProductsPage() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     dispatch(getAllProducts())
-      .then(() => setIsLoading(false))
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching products:", error);
-        setIsLoading(false);
       });
   }, [dispatch]);
 
   const productsState = useSelector((store) => store.products);
+  const isLoading = productsState.length === 0;
 
   return (
     <section className={s.container}>
@@ -41,13 +39,11 @@ export default function AllProductsPage() {
       <FilterContainer />
       <div className={s.productsGrid}>
         {isLoading ? (
-          <CategoriesSkeleton count={8} />
+          <Skeleton count={11} />
         ) : (
           productsState
             .filter((el) => el.visible)
-            .map((product) => (
-              <ProductsItem key={product.id} {...product} />
-            ))
+            .map((product) => <ProductsItem key={product.id} {...product} />)
         )}
       </div>
     </section>

@@ -60,19 +60,18 @@ export default function ShoppingCartItem({ item }) {
               {item.discont_price && (
                 <span className={s.originalPrice}>${item.price}</span>
               )}
-
             </div>
             {item.discont_price && (
-                <div className={s.discountBadge}>
-                  <span className={s.discountText}>
-                    -
-                    {Math.round(
-                      ((item.price - item.discont_price) / item.price) * 100
-                    )}
-                    %
-                  </span>
-                </div>
-              )}
+              <div className={s.discountBadge}>
+                <span className={s.discountText}>
+                  -
+                  {Math.round(
+                    ((item.price - item.discont_price) / item.price) * 100
+                  )}
+                  %
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

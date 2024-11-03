@@ -45,33 +45,28 @@
 }
 
 .allCategoriesButton:hover {
-  background-color: #F2F6D3;
-  color: #8B8B8B;
+  background-color: #f2f6d3;
+  color: #8b8b8b;
 }
 
 .contentContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
   gap: 32px;
   width: 100%;
 }
 
 .cartItems {
-  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 780px;
 }
 
 .orderDetails {
-  flex: 2;
   padding: 32px;
   background-color: var(--background-color-footer);
   border-radius: 12px;
-  color: black;
-  max-width: 548px;
+  color: #8b8b8b;
 }
 
 .orderDetails h2 {
@@ -85,7 +80,7 @@
 .orderDetails p {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
-  color: #8B8B8B;
+  color: #8b8b8b;
 }
 
 .totalPrice {
@@ -118,7 +113,7 @@
 .input {
   padding: 16px;
   font-size: 18px;
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   background: var(--background-color);
@@ -128,11 +123,11 @@
 }
 
 .input::placeholder {
-  color: #8B8B8B;
+  color: #8b8b8b;
 }
 
 .button {
-  background-color: #92A134;
+  background-color: #92a134;
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -148,13 +143,15 @@
   background-color: #424436;
   color: white;
 }
+
 .emptyCartContainer {
-  color: #92A134;
+  color: #92a134;
   font-family: "Montserrat", sans-serif;
+  max-width: 100%;
 }
 
 .emptyTitle {
-  width: 548px;
+  max-width: 100%;
   color: var(--text-color);
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -162,6 +159,7 @@
   font-weight: 500;
   line-height: 130%;
   margin-bottom: 30px;
+  word-break: break-word;
 }
 
 .continueShoppingButton {
@@ -231,3 +229,87 @@
   color: white;
   cursor: pointer;
 }
+
+@media (max-width: 1060px) {
+  .contentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .cartItems,
+  .orderDetails {
+    width: 100%;
+  }
+
+  .orderDetails {
+    padding: 20px;
+  }
+
+  .orderDetails h2 {
+    font-size: 32px;
+  }
+
+  .totalPrice h3 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 42px;
+  }
+
+  .orderDetails h2 {
+    font-size: 28px;
+  }
+
+  .totalPrice h3 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 672px) {
+  .title {
+    font-size: 34px;
+    margin-right: 14px;
+  }
+
+  .head {
+    margin-bottom: 20px;
+  }
+
+  .shoppingCartContainer {
+    padding: 20px 20px 40px 20px;
+  }
+
+  .allCategoriesButton {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+@media (max-width: 480px) {
+  .emptyTitle {
+    font-size: 14px;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .allCategoriesButton {
+    display: none;
+  }
+  .line {
+    display: none;
+  }
+}
+
+

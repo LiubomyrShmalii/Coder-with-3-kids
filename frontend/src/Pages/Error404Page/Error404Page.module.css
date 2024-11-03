@@ -5,7 +5,7 @@
   background-color: var(--background-color);
   font-family: "Montserrat", normal;
   text-align: center;
-  color: #92A134;
+  color: #92a134;
   padding: 80px 0;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,6 @@
 .errorImage {
   width: 300px;
   height: 270px;
-  fill: #8B8B8B;
 }
 
 .errorText {
@@ -31,9 +30,9 @@
 }
 
 .errorDescription {
-  color: var(--txt-grey, #8B8B8B);
+  color: var(--txt-grey, #8b8b8b);
   text-align: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -45,7 +44,7 @@
   padding: 16px 56px;
   font-size: 20px;
   color: white;
-  background-color: #92A134;
+  background-color: #92a134;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -54,4 +53,45 @@
 
 .goHomeBtn:hover {
   background-color: #7d902b;
+}
+
+@media (max-width: 1000px) {
+  .errorContainer {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .errorImage {
+    width: 200px;
+    height: 240px;
+  }
+
+  .errorText {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .errorContainer {
+    padding: 56px 20px;
+  }
+
+  .errorImage {
+    width: 20px;
+    height: 20px;
+  }
+
+  .errorText {
+    font-size: 48px;
+  }
+
+  .fourImage {
+    width: 20px;
+    height: 20px;
+  }
+
+  .goHomeBtn {
+    padding: 12px 52px;
+  }
 }

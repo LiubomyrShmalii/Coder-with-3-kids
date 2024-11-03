@@ -14,19 +14,17 @@ export default function FavoriteProductsPage() {
     <section className={s.container}>
       {favoriteProducts.length > 0 && (
         <>
-      <div className={s.breadcrumbs}>
-        <div className={s.crumbBox}>
-          <Link to="/" className={s.crumbText}>
-            Main page
-          </Link>
-        </div>
-        <div className={s.line}></div>
-        <div className={s.crumbBox}>
-          <div className={s.crumbTextBlack}>
-            Liked products
+          <div className={s.breadcrumbs}>
+            <div className={s.crumbBox}>
+              <Link to="/" className={s.crumbText}>
+                Main page
+              </Link>
+            </div>
+            <div className={s.line}></div>
+            <div className={s.crumbBox}>
+              <div className={s.crumbTextBlack}>Liked products</div>
+            </div>
           </div>
-        </div> 
-      </div>
           <div className={s.head}>
             <h2 className={s.title}>Liked products</h2>
           </div>
