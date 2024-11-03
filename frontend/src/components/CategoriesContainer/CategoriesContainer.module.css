@@ -15,7 +15,7 @@
 
 .title {
   color: var(--color);
-  font-family: "Montserrat", normal;
+  font-family: "Montserrat", sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 110%;
@@ -31,7 +31,7 @@
 .allCategoriesButton {
   background-color: var(--background-color);
   color: #898989dd;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 500;
   border: 1px solid #898989dd;
@@ -43,12 +43,83 @@
 }
 
 .allCategoriesButton:hover {
-  background-color: #F2F6D3;
-  color: #8B8B8B;
+  background-color: #f2f6d3;
+  color: #8b8b8b;
 }
 
 .categories {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 60px 20px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .allCategoriesButton {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+  .head {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .title {
+    font-size: 56px;
+  }
+  .head {
+    margin-bottom: 20px;
+  }
+  .allCategoriesButton {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 40px 20px;
+  }
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .title {
+    font-size: 40px;
+    margin-right: 10px;
+  }
+  .allCategoriesButton {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 40px 20px;
+  }
+  .categories {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .line {
+    display: none;
+  }
+  .allCategoriesButton {
+    display: none;
+  }
 }

@@ -22,7 +22,7 @@
 }
 
 .containerTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 96px;
   font-weight: 700;
   margin-bottom: 40px;
@@ -31,9 +31,9 @@
 }
 
 .containerButton {
-  background-color: #92A134;
+  background-color: #92a134;
   color: white;
-  font-family: 'Montserrat', normal;
+  font-family: "Montserrat", normal;
   font-size: 20px;
   font-weight: 400;
   padding: 16px 56px;
@@ -47,4 +47,35 @@
   background-color: #424436;
 }
 
+@media (max-width: 1000px) {
+  .containerText {
+    margin: 60px 0 0 20px;
+  }
 
+  .containerTitle {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerTitle {
+    font-size: 68px;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerTitle {
+    font-size: 60px;
+    margin-bottom: 24px;
+  }
+  .containerButton {
+    font-size: 18px;
+    padding: 10px 52px;
+  }
+}
+
+@media (max-width: 360px) {
+  .containerTitle {
+    font-size: 58px;
+  }
+}

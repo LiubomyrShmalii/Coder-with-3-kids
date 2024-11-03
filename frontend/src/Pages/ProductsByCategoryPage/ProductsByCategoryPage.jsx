@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getProductsByCategory } from "../../requests/allProducts";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,20 +10,19 @@ import FilterContainer from "../../components/FilterContainer/FilterContainer";
 export default function ProductsByCategoryPage() {
   const { categoryId } = useParams();
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     dispatch(getProductsByCategory(categoryId))
-      .then(() => setIsLoading(false))
-      .catch(error => {
-        console.error("Error fetching products by category:", error);
-        setIsLoading(false);
+      .catch((error) => {
+        console.error("Error fetching products:", error);
       });
-  }, [dispatch, categoryId]);
+  }, [categoryId, dispatch]);
 
   const productsByCategoryState = useSelector(
     (store) => store.productsByCategory
   );
+  const isLoading = productsByCategoryState.length === 0;
+  
 
   const productsByCategory = productsByCategoryState.data || [];
   const nameCategory = productsByCategoryState.category || {};
@@ -31,7 +30,7 @@ export default function ProductsByCategoryPage() {
   return (
     <div>
       {isLoading ? (
-        <Skeleton count={8} />
+        <Skeleton count={11} />
       ) : (
         <section className={s.container}>
           <div className={s.breadcrumbs}>
@@ -48,9 +47,7 @@ export default function ProductsByCategoryPage() {
             </div>
             <div className={s.line}></div>
             <div className={s.crumbBox}>
-              <div className={s.crumbTextBlack}>
-                {nameCategory.title}
-              </div>
+              <div className={s.crumbTextBlack}>{nameCategory.title}</div>
             </div>
           </div>
           <div className={s.head}>

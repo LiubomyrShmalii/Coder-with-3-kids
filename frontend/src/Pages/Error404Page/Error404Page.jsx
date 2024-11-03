@@ -8,9 +8,9 @@ export default function Error404Page() {
   return (
     <div className={s.errorContainer}>
       <div>
-      <img src={fourImage} alt="Number four" className={s.fourImage} />
-      <img src={cactus} alt="Cactus" className={s.errorImage} />
-      <img src={fourImage} alt="Number four" className={s.fourImage} />
+        <img src={fourImage} alt="Number four" className={s.fourImage} />
+        <img src={cactus} alt="Cactus" className={s.errorImage} />
+        <img src={fourImage} alt="Number four" className={s.fourImage} />
       </div>
       <p className={s.errorText}>Page Not Found</p>
       <p className={s.errorDescription}>

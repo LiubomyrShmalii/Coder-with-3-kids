@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import s from './ScrollToUp.module.css';
+import s from "./ScrollToUp.module.css";
 
 export default function ScrollToUp() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,14 +14,14 @@ export default function ScrollToUp() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToUp = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 

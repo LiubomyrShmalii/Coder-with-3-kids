@@ -1,19 +1,17 @@
 .cartItem {
   display: flex;
-  width: 780px;
+  max-width: 780px;
   gap: 32px;
   border-radius: 12px;
-  border: 1px solid #DDD;
-  background: var(--background-color);
+  border: 1px solid #ddd;
+  background-color: var(--background-color-another);
+  width: 100%;
 }
-
 
 .productImage {
   flex-shrink: 0;
-  width: 200px;
-  height: 180px;
+  max-width: 200px;
   border-radius: 12px 0 0 12px;
-  overflow: hidden;
 }
 
 .productImage img {
@@ -26,7 +24,6 @@
 .itemDetails {
   display: flex;
   flex-grow: 1;
-  height: 180px;
   padding: 32px 32px 32px 0px;
   flex-direction: column;
   justify-content: space-between;
@@ -42,15 +39,17 @@
 }
 
 .productTitle {
-  overflow: hidden;
-  color: #424436;
-  text-overflow: ellipsis;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 130%;
-  width: 100%;
+  color: var(--color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line: 2;
+  line-height: 1.2em;
+  height: calc(1.2em * 2);
 }
 
 .removeItem {
@@ -64,12 +63,14 @@
 .quantityAndPrice {
   display: flex;
   width: 100%;
+  max-width: 250px;
+  gap: 16px;
+  align-items: center;
 }
 
 .quantityControl {
   display: flex;
   align-items: center;
-  margin-right: 32px;  
 }
 
 .boxMinus,
@@ -100,23 +101,22 @@
   align-items: center;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  z-index: 0;
-  margin-left: -10px;
   color: var(--color);
+  z-index: 0;
   font-family: "Montserrat", sans-serif;
+  margin-left: -10px;
 }
 
 .priceBlock {
   display: flex;
   font-family: "Montserrat", sans-serif;
   align-items: flex-start;
-  gap: 16px;
+  gap: 8px;
 }
 
 .currentPrice {
   font-size: 40px;
   font-weight: 700;
-  margin-right: 16px;
   color: var(--color);
 }
 
@@ -124,7 +124,7 @@
   font-size: 20px;
   font-weight: 500;
   color: #8b8b8b;
-  text-decoration: line-through 2px;
+  text-decoration: line-through;
 }
 
 .discountBadge {
@@ -137,4 +137,146 @@
   font-size: 20px;
   font-weight: 600;
   color: white;
+}
+
+@media (max-width: 1173px) {
+  .itemDetails {
+    padding: 20px 20px 20px 0px;
+  }
+
+  .productImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .quantityAndPrice {
+    gap: 4px;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1060px) {
+  .cartItem {
+    max-width: 100%;
+  }
+
+  .quantityAndPrice {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .cartItem {
+    gap: 18px;
+    width: 100%;
+  }
+
+  .itemDetails {
+    padding: 10px 10px 10px 0px;
+  }
+
+  .productImage img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .quantityAndPrice {
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .boxMinus,
+  .boxPlus {
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: var(--plus-minus);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .quantity {
+    display: flex;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: var(--color);
+    font-family: "Montserrat", sans-serif;
+  }
+  .titleAndRemove {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productImage img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .cartItem {
+    display: flex;
+    max-width: 320px;
+    gap: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background-color: var(--background-color-another);
+    width: 100%;
+  }
+
+  .productImage {
+    max-width: 100px;
+    height: 100%;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .productTitle {
+    font-size: 14px;
+  }
+
+  .currentPrice {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color);
+  }
+
+  .originalPrice {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8b8b8b;
+    text-decoration: line-through;
+  }
+
+  .discountBadge {
+    background-color: var(--bandage);
+    border-radius: 6px;
+    padding: 3px 6px;
+  }
+
+  .discountText {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
 }

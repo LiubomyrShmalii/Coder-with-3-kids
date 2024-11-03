@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from "react";
 import s from "./FilterContainer.module.css";
-import { filterByPriceAction, getCheapProductsAction, sortAllProductsAction } from "../../store/reducers/allProductsReducer";
+import {
+  filterByPriceAction,
+  getCheapProductsAction,
+  sortAllProductsAction,
+} from "../../store/reducers/allProductsReducer";
 import { useDispatch } from "react-redux";
 
 export default function FilterContainer({ showDiscountFilter = true }) {
-
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
   const handlCheck = () => setChecked(!checked);
-  
-  const handlClick = e => dispatch(getCheapProductsAction(e.target.checked));
 
-  const handlOrder = e => dispatch(sortAllProductsAction(e.target.value));
+  const handlClick = (e) => dispatch(getCheapProductsAction(e.target.checked));
+
+  const handlOrder = (e) => dispatch(sortAllProductsAction(e.target.value));
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(Infinity);
   const [error, setError] = useState(null);
 
-  const handleMinValue = e => {
+  const handleMinValue = (e) => {
     const value = e.target.value || 0;
     setMinValue(value);
     validatePriceRange(value, maxValue);
   };
 
-  const handleMaxValue = e => {
+  const handleMaxValue = (e) => {
     const value = e.target.value || Infinity;
     setMaxValue(value);
     validatePriceRange(minValue, value);
@@ -43,7 +46,7 @@ export default function FilterContainer({ showDiscountFilter = true }) {
       dispatch(
         filterByPriceAction({
           min: minValue,
-          max: maxValue
+          max: maxValue,
         })
       );
     }
@@ -54,7 +57,7 @@ export default function FilterContainer({ showDiscountFilter = true }) {
       dispatch(
         filterByPriceAction({
           min: minValue,
-          max: maxValue
+          max: maxValue,
         })
       );
     }

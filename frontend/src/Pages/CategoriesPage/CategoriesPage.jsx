@@ -4,15 +4,19 @@ import s from "./CategoriesPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import { Link } from "react-router-dom";
+import Skeleton from "../../components/Skeleton/Skeleton";
 
 export default function CategoriesPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCategories);
+    dispatch(getAllCategories()).catch((error) => {
+      console.error("Error fetching products:", error);
+    });
   }, [dispatch]);
 
   const categories = useSelector((store) => store.categories);
+  const isLoading = categories.length === 0;
 
   return (
     <section className={s.container}>
@@ -24,9 +28,7 @@ export default function CategoriesPage() {
         </div>
         <div className={s.line}></div>
         <div className={s.crumbBox}>
-          <div className={s.crumbTextBlack}>
-            Categories
-          </div>
+          <div className={s.crumbTextBlack}>Categories</div>
         </div>
       </div>
 
@@ -35,9 +37,13 @@ export default function CategoriesPage() {
       </div>
 
       <div className={s.categories}>
-        {categories.map((category) => (
-          <CategoryItem key={category.id} {...category} />
-        ))}
+        {isLoading ? (
+          <Skeleton count={4} />
+        ) : (
+          categories.map((category) => (
+            <CategoryItem key={category.id} {...category} />
+          ))
+        )}
       </div>
     </section>
   );
