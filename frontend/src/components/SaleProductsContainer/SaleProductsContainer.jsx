@@ -31,7 +31,7 @@ export default function SaleProductsContainer() {
       <div className={s.head}>
         <h2 className={s.title}>Sale</h2>
         <div className={s.line}></div>
-        <Link to="/sales" className={s.allSalesButton}>
+        <Link to="/discounted_products" className={s.allSalesButton}>
           All sales
         </Link>
       </div>

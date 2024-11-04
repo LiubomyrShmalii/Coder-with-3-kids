@@ -26,7 +26,7 @@ export default function DiscountForm() {
     required: 'The field "Phone" is required',
     pattern: {
       value:
-        /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,4}$/,
+        /^\+?[1-9]\d{1,14}$|^[(]?[0-9]{1,4}[)]?[-\s\]?[0-9]{1,4}[-\s\]?[0-9]{1,4}$/,
       message: "You entered the wrong phone.",
     },
   });

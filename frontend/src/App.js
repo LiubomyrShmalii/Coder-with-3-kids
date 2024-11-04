@@ -9,6 +9,7 @@ import ProductsByCategoryPage from './Pages/ProductsByCategoryPage/ProductsByCat
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
 import ShoppingCartPage from './Pages/ShoppingСartPage/ShoppingСartPage.jsx';
 import ScrollToUp from '../src/components/ScrollToUp/ScrollToUp.jsx';
+import AutoScrollToTop from '../src/AvtoScrollToTop.js';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <ScrollToUp />
+      <AutoScrollToTop />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<MainPage />} />
